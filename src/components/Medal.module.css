@@ -1,0 +1,17 @@
+.medal {
+    display: flex;
+    box-sizing: border-box;
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    justify-items: center;
+    border: 1px solid transparent;
+    border-radius: 50px;
+    transition: background-color 0.5s;
+}
+
+.medal:hover {
+    background-color: white;
+}
