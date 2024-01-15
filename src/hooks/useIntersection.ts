@@ -20,7 +20,7 @@ export const useIntersection = (
                 ([entry]) => {
                     setState(entry.isIntersecting);
                 },
-                { rootMargin, threshold: 0.8 }
+                { rootMargin, threshold: 0.2 }
             );
             current && observer?.observe(current);
         }
