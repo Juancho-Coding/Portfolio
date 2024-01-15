@@ -1,30 +1,42 @@
-# React + TypeScript + Vite
+# README PORTFOLIO
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the repository for my personal portfolio website! This repository contains the source code and assets for my online portfolio, showcasing my skills, projects, and experiences. Feel free to explore the code.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-   [Introduction](#introduction)
+-   [Features](#features)
+-   [Installation](#installation)
+-   [Usage](#usage)
+-   [License](#license)
 
-## Expanding the ESLint configuration
+## Introduction
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+This repository houses the codebase for my personal portfolio website. The website is designed to provide a comprehensive overview of my skills, projects, and experiences. It serves as an interactive and visually appealing representation of my work.
 
-- Configure the top-level `parserOptions` property like this:
+## Features
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+-   **Responsive Design**: The website is designed to be responsive and accessible across various devices and screen sizes.
+-   **Project Showcase**: A dedicated section to showcase my projects with descriptions and links.
+-   **Skills and Technologies**: Highlighting the skills and technologies I am proficient in.
+-   **Contact Information**: Easily accessible contact information for potential collaboration and networking.
+-   **Interactive Elements**: Engaging and interactive elements to enhance user experience.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Installation
+
+1. Clone the repository: `https://github.com/Juancho-Coding/Portfolio.git`
+2. Navigate to the project directory.
+3. Install all the dependencies running `npm install`. Remember, you need to have nodejs installed.
+4. Run the server `npm run vite`.
+
+## Usage
+
+Feel free to use this repository as a template for your own portfolio website. Update the content, add your projects, and customize the styling to reflect your personal brand.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE). Feel free to use and modify the code as needed for your own portfolio.
+
+Thank you for visiting my portfolio repository! If you have any questions or feedback, feel free to reach out.
+
+\[Juan Pablo\]
