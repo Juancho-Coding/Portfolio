@@ -3,13 +3,22 @@ import "react-circular-progressbar/dist/styles.css";
 
 import SkillCard from "../SkillCard";
 import SkillCardHor from "../SkillCardHor";
+import { useIntersection } from "../../hooks/useIntersection";
+import { useEffect, useRef } from "react";
 
-const Skills = () => {
+const Skills = ({ onVisible }: props) => {
     const theme = useTheme();
     const matchesMd = useMediaQuery(theme.breakpoints.up("md"));
 
+    const ref = useRef<HTMLElement>(null);
+    const isVisible = useIntersection(ref, "0px");
+
+    useEffect(() => {
+        if (isVisible) onVisible("Skills");
+    }, [isVisible]);
+
     return (
-        <section style={{ width: "100%", height: "400px", flex: 1 }} id="Skills">
+        <section style={{ width: "100%", height: "400px", flex: 1 }} id="Skills" ref={ref}>
             <Box
                 sx={{
                     background: "linear-gradient(to bottom right, #32534c, black)",
@@ -90,5 +99,9 @@ const skills = [
     { title: "Git", body: "", image: "src/assets/git.svg" },
     { title: "LabVIEW", body: "", image: "src/assets/labview.svg" },
 ];
+
+type props = {
+    onVisible: React.Dispatch<React.SetStateAction<string>>;
+};
 
 export default Skills;

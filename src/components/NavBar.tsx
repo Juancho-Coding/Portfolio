@@ -1,15 +1,13 @@
 import { Box, AppBar, Toolbar, Typography, Stack, Button } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import { useLocation } from "react-router-dom";
 
 import LinkItem from "./LinkItem";
 import Medal from "./Medal";
 import { useEffect, useState } from "react";
 
-const NavBar = () => {
+const NavBar = ({ currentSection }: props) => {
     const [scrolled, setScrolled] = useState(false);
-    const urlLocation = useLocation();
 
     // Effect to make the navbar transparent when scrolling
     useEffect(() => {
@@ -70,9 +68,9 @@ const NavBar = () => {
                                 justifyContent: "space-evenly",
                             }}
                         >
-                            <LinkItem to="#Home" text="Home" location={urlLocation.hash} />
-                            <LinkItem to="#Skills" text="Skills" location={urlLocation.hash} />
-                            <LinkItem to="#Projects" text="Projects" location={urlLocation.hash} />
+                            <LinkItem to="#Home" text="Home" location={currentSection} />
+                            <LinkItem to="#Skills" text="Skills" location={currentSection} />
+                            <LinkItem to="#Projects" text="Projects" location={currentSection} />
                         </Box>
                         <Box
                             sx={{
@@ -140,5 +138,7 @@ const NavBar = () => {
         </Box>
     );
 };
+
+type props = { currentSection: string };
 
 export default NavBar;

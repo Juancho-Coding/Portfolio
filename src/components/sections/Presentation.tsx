@@ -1,12 +1,21 @@
+import { useRef, useEffect } from "react";
 import { Box, Typography, Button } from "@mui/material";
 import { TypeAnimation } from "react-type-animation";
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 
+import { useIntersection } from "../../hooks/useIntersection";
 import coding from "../../assets/test.png";
 import classes from "./Presentation.module.css";
 
-const Presentation = () => {
+const Presentation = ({ onVisible }: props) => {
     const message = `Welcome to the world of coding brilliance! 🚀 I am a passionate software developer with a keen interest in backend development and infrastructure. Armed with a love for coding and an insatiable appetite for self-learning. Coding is not just a job, it's a passion. From algorithms to elegant solutions, every line of code is a brushstroke in a masterpiece. Embracing new languages, frameworks, and methodologies is not a challenge but a thrilling adventure`;
+
+    const ref = useRef<HTMLElement>(null);
+    const isVisible = useIntersection(ref, "0px");
+
+    useEffect(() => {
+        if (isVisible) onVisible("Home");
+    }, [isVisible]);
 
     return (
         <section
@@ -16,6 +25,7 @@ const Presentation = () => {
                 flex: 1,
             }}
             id="Home"
+            ref={ref}
         >
             <Box
                 sx={{
@@ -111,6 +121,10 @@ const Presentation = () => {
             </Box>
         </section>
     );
+};
+
+type props = {
+    onVisible: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export default Presentation;
