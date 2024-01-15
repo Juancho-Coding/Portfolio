@@ -1,0 +1,43 @@
+.blurred-image-container {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    animation: 3s ease-in-out infinite example;
+}
+
+.blurred-image {
+    display: block;
+    max-width: 100%;
+    margin: auto;
+    height: auto;
+}
+
+@keyframes example {
+    0% {
+        left: 0px;
+    }
+    50% {
+        left: 10px;
+    }
+    100% {
+        left: 0px;
+    }
+}
+
+.type-animation {
+    display: "inline-block";
+    font-weight: 700;
+}
+
+@media only screen and (min-width: 900px) {
+    .type-animation {
+        font-size: 3rem;
+    }
+}
+
+/* If the screen size is 600px or less, set the font-size of <div> to 30px */
+@media only screen and (max-width: 899px) {
+    .type-animation {
+        font-size: 2rem;
+    }
+}
