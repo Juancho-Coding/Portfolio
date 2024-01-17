@@ -1,0 +1,11 @@
+.detailed {
+    animation: fadein 1s ease-in;
+    flex: 0;
+}
+
+@keyframes fadein {
+    100% {
+        flex: 1;
+        display: block;
+    }
+}
