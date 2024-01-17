@@ -18,7 +18,7 @@ const Skills = ({ onVisible }: props) => {
     }, [isVisible]);
 
     return (
-        <section style={{ width: "100%", height: "400px", flex: 1 }} id="Skills" ref={ref}>
+        <section style={{ width: "100%" }} id="Skills" ref={ref}>
             <Box
                 sx={{
                     background: "linear-gradient(to bottom right, #32534c, black)",
@@ -75,9 +75,19 @@ const Skills = ({ onVisible }: props) => {
                     >
                         {skills.map((el) => {
                             return matchesMd ? (
-                                <SkillCard image={el.image} title={el.title} body={el.body} />
+                                <SkillCard
+                                    image={el.image}
+                                    title={el.title}
+                                    body={el.body}
+                                    key={el.title}
+                                />
                             ) : (
-                                <SkillCardHor image={el.image} title={el.title} body={el.body} />
+                                <SkillCardHor
+                                    image={el.image}
+                                    title={el.title}
+                                    body={el.body}
+                                    key={el.title}
+                                />
                             );
                         })}
                     </Box>

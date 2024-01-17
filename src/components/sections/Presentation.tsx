@@ -22,7 +22,6 @@ const Presentation = ({ onVisible }: props) => {
             style={{
                 height: "auto",
                 width: "100%",
-                flex: 1,
             }}
             id="Home"
             ref={ref}
@@ -78,7 +77,9 @@ const Presentation = ({ onVisible }: props) => {
                         speed={50}
                         repeat={Infinity}
                     />
-                    <Typography sx={{ color: "lightgray", fontSize: "1.2rem" }}>
+                    <Typography
+                        sx={{ color: "lightgray", fontSize: "1.2rem", textAlign: "justify" }}
+                    >
                         {message}
                     </Typography>
                     <Typography sx={{ color: "lightgray", fontSize: "1.2rem", mt: "10px" }}>

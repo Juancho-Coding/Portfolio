@@ -12,7 +12,7 @@ const NavBar = ({ currentSection }: props) => {
     // Effect to make the navbar transparent when scrolling
     useEffect(() => {
         const scrollHandler = () => {
-            if (window.scrollY > 50) {
+            if (window.scrollY > 30) {
                 setScrolled(true);
             } else {
                 setScrolled(false);
