@@ -1,0 +1,20 @@
+.hidden-content {
+    height: 0%;
+    /* background: linear-gradient(0.5turn, #e66465, #9198e5); */
+    transition: height 0.5s;
+    overflow: hidden;
+}
+
+.hidden-content-hover {
+    height: 100%;
+}
+
+.hidden-content {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.content {
+    height: 100%;
+    background-color: white;
+}
