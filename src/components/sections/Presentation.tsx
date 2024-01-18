@@ -20,7 +20,6 @@ const Presentation = ({ onVisible }: props) => {
     return (
         <section
             style={{
-                height: "auto",
                 width: "100%",
             }}
             id="Home"

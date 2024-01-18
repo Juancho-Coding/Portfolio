@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import "react-circular-progressbar/dist/styles.css";
 
 import { useIntersection } from "../../hooks/useIntersection";
@@ -7,9 +7,6 @@ import ProjectsContainer from "../ProjectsContainer";
 
 const Prjects = ({ onVisible }: props) => {
     const [color, setColor] = useState("#adad05");
-
-    const theme = useTheme();
-    const matchesMd = useMediaQuery(theme.breakpoints.up("md"));
 
     const ref = useRef<HTMLElement>(null);
     const isVisible = useIntersection(ref, "0px");
@@ -23,8 +20,14 @@ const Prjects = ({ onVisible }: props) => {
     }, [isVisible]);
 
     return (
-        <section style={{ width: "100%", maxHeight: "600px" }} id="Projects" ref={ref}>
-            <Box style={{ position: "relative", top: 0, left: 0, width: "100%", height: "100%" }}>
+        <section
+            style={{
+                width: "100%",
+            }}
+            id="Projects"
+            ref={ref}
+        >
+            <Box style={{ position: "relative", top: 0, left: 0, width: "100%", height: "auto" }}>
                 <Box
                     style={{
                         backgroundColor: `${color}`,
