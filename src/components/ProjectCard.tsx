@@ -13,6 +13,7 @@ const ProjectCard = ({ element, onClick }: props) => {
                 width: "250px",
                 height: "150px",
                 overflow: "hidden",
+                boxShadow: "0 0 5px 1px white",
             }}
             onMouseEnter={() => setMouseState(true)}
             onMouseLeave={() => setMouseState(false)}

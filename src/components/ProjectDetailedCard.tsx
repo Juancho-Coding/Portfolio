@@ -21,13 +21,14 @@ const ProjectDetailedCard = ({ onClose, item }: props) => {
             <Card
                 sx={{
                     boxSizing: "border-box",
-                    width: "600px",
-                    height: "500px",
+                    maxWidth: "600px",
+                    mr: 1,
                     padding: "10px",
                     position: "relative",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
+                    boxShadow: "0 0 5px 1px white",
                 }}
             >
                 {item && (
