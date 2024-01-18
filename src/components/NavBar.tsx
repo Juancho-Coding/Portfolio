@@ -45,7 +45,9 @@ const NavBar = ({ currentSection }: props) => {
                                 fontFamily: "Poppins",
                             }}
                         >
-                            <span style={{ fontSize: "30px" }}>Logo</span>
+                            <span style={{ fontSize: "30px" }}>
+                                {scrolled ? " Juan Pablo" : "My Portfolio"}
+                            </span>
                         </Typography>
                     </Box>
                     <Box

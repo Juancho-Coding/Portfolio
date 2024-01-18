@@ -38,33 +38,49 @@ Additionally, it communicates with a database to store metrics and results of ea
     {
         title: "ChatGPT Clone",
 
-        description: `Presentamos un emocionante proyecto que se asemeja a la funcionalidad de ChatGPT, 
-            un asistente virtual de última generación. Este innovador desarrollo se centra en 
-            la creación de un sistema inteligente capaz de comprender y generar respuestas coherentes 
-            en lenguaje natural. Utilizando técnicas avanzadas de procesamiento del lenguaje natural, 
-            nuestro proyecto busca ofrecer una experiencia conversacional única. Este asistente virtual 
-            no solo interpreta preguntas y solicitudes, sino que también aprende y adapta sus respuestas 
-            con el tiempo, proporcionando un nivel de interacción y utilidad que redefine la comunicación 
-            con la inteligencia artificial`,
-        image: "src/assets/react.svg",
+        description: `
+Experience the power of a ChatGPT-inspired project! Unlock a world of possibilities by registering on the platform
+and diving into the chat. Ask any general questions or request code snippets effortlessly. Your journey begins now –
+**sign up** and explore without sharing personal or sensitive information. Elevate your experience with our feature-rich
+platform!
+
+> - Register and login with credentials validation using JWT
+> - Public and protected routes in NodeJS with ExpressJS
+> - Use of mongoDB and mongoose to store user chats
+> - Extensive use of REST APIs and openAI API
+
+> **Stack** Frontend: React, MUI.
+> Backend: NodeJS, Typescript, MongoDB, Mongoose
+`,
+        image: "src/assets/chatclone_thumb.jpg",
         id: "2",
-        github: "",
+        github: "https://github.com/Juancho-Coding/Chatbot-clone",
         demo: "",
     },
     {
-        title: "Project 3",
-        description: "Este es el proyecto numero 3",
-        image: "src/assets/react.svg",
+        title: "Cleaning folder CLI",
+        description: `
+This is a simple command line interface that helps us to delete the
+unwanted folder of the projects developed with NodeJS when were are
+making backups, AKA **node_modules**
+
+> **Stack** Pure NodeJS
+`,
+        image: "src/assets/cli_thumb.jpg",
         id: "3",
-        github: "",
+        github: "https://github.com/Juancho-Coding/Utility-backup-cli",
         demo: "",
     },
     {
-        title: "Project 4",
-        description: "Este es el proyecto numero 4",
-        image: "src/assets/react.svg",
+        title: "This Portfolio 😎",
+        description: `
+If you like this portfolio, feel free to check the code and use as you want.
+This page is mainly built with React an MUI, in the github page you will 
+find the instructions to clone the repository and
+run it in a local environment`,
+        image: "src/assets/portfolio_thumb.jpg",
         id: "4",
-        github: "",
+        github: "https://github.com/Juancho-Coding/Portfolio",
         demo: "",
     },
 ];

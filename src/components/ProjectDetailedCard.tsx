@@ -62,9 +62,11 @@ const ProjectDetailedCard = ({ onClose, item }: props) => {
                                 {item.github.length !== 0 && (
                                     <Button
                                         variant="contained"
-                                        disabled
                                         startIcon={<GitHubIcon />}
                                         sx={{ ml: 2 }}
+                                        onClick={() => {
+                                            window.open(item.github, "_blank");
+                                        }}
                                     >
                                         Code
                                     </Button>
@@ -85,7 +87,7 @@ const ProjectDetailedCard = ({ onClose, item }: props) => {
                     variant="contained"
                     sx={{
                         position: "absolute",
-                        top: 10,
+                        bottom: 10,
                         right: 10,
                     }}
                     onClick={() => {

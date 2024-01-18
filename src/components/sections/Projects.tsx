@@ -24,8 +24,8 @@ const Prjects = ({ onVisible }: props) => {
 
     return (
         <section style={{ width: "100%", maxHeight: "600px" }} id="Projects" ref={ref}>
-            <div style={{ position: "relative", top: 0, left: 0, width: "100%", height: "100%" }}>
-                <div
+            <Box style={{ position: "relative", top: 0, left: 0, width: "100%", height: "100%" }}>
+                <Box
                     style={{
                         backgroundColor: `${color}`,
                         position: "absolute",
@@ -37,7 +37,7 @@ const Prjects = ({ onVisible }: props) => {
                     }}
                 >
                     fs
-                </div>
+                </Box>
                 <img
                     src="src/assets/back.png"
                     alt=""
@@ -52,7 +52,7 @@ const Prjects = ({ onVisible }: props) => {
                     }}
                 />
                 {/* a partir de este punto se ingresa el contenido */}
-                <div style={{ position: "relative", zIndex: 2 }}>
+                <Box style={{ position: "relative", zIndex: 2 }}>
                     <Box
                         sx={{
                             pt: "100px",
@@ -88,8 +88,8 @@ const Prjects = ({ onVisible }: props) => {
                             <ProjectsContainer onSelection={selectionHandler} />
                         </Box>
                     </Box>
-                </div>
-            </div>
+                </Box>
+            </Box>
         </section>
     );
 };

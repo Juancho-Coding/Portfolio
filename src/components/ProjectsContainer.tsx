@@ -36,7 +36,6 @@ const ProjectsContainer = (props: props) => {
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
-                    alignItems: "stretch",
                 }}
             >
                 <Typography
