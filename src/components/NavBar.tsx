@@ -69,9 +69,9 @@ const NavBar = ({ currentSection }: props) => {
                                 justifyContent: "space-evenly",
                             }}
                         >
-                            <LinkItem to="#Home" text="Home" location={currentSection} />
-                            <LinkItem to="#Skills" text="Skills" location={currentSection} />
-                            <LinkItem to="#Projects" text="Projects" location={currentSection} />
+                            <LinkItem to="/#Home" text="Home" location={currentSection} />
+                            <LinkItem to="/#Skills" text="Skills" location={currentSection} />
+                            <LinkItem to="/#Projects" text="Projects" location={currentSection} />
                         </Box>
                         <Box
                             sx={{

@@ -2,13 +2,13 @@
     "name": "landing-page",
     "private": true,
     "version": "0.0.0",
-    "homepage": "https://Juancho-Coding.github.io/portfolio",
+    "homepage": "https://Juancho-Coding.github.io/Portfolio",
     "type": "module",
     "scripts": {
         "predeploy": "npm run build",
         "deploy": "gh-pages -d dist",
         "dev": "vite",
-        "build": "tsc && vite build",
+        "build": "tsc && vite build --base=/Portfolio && cp -a src/assets/ dist/",
         "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
         "preview": "vite preview"
     },
@@ -22,11 +22,13 @@
         "react-dom": "^18.2.0",
         "react-markdown": "^9.0.1",
         "react-router-dom": "^6.21.2",
+        "react-router-hash-link": "^2.4.3",
         "react-type-animation": "^3.2.0"
     },
     "devDependencies": {
         "@types/react": "^18.2.43",
         "@types/react-dom": "^18.2.17",
+        "@types/react-router-hash-link": "^2.4.9",
         "@typescript-eslint/eslint-plugin": "^6.14.0",
         "@typescript-eslint/parser": "^6.14.0",
         "@vitejs/plugin-react": "^4.2.1",

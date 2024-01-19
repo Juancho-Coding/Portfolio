@@ -1,4 +1,5 @@
 import { Typography } from "@mui/material";
+import { HashLink } from "react-router-hash-link";
 
 import classes from "./LinkItem.module.css";
 
@@ -6,7 +7,7 @@ const LinkItem = ({ to, text, location }: LinkItemProps) => {
     // if the link is clicked change its color
     const selected = location.includes(text);
     return (
-        <a href={to} className={classes.link}>
+        <HashLink to={to} className={classes.link}>
             <Typography
                 sx={{
                     fontSize: { xs: "0.9rem", sm: "0.9rem", md: "1.1rem" },
@@ -16,7 +17,7 @@ const LinkItem = ({ to, text, location }: LinkItemProps) => {
             >
                 {text}
             </Typography>
-        </a>
+        </HashLink>
     );
 };
 type LinkItemProps = { to: string; text: string; location: string };

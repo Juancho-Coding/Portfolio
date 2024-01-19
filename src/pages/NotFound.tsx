@@ -21,7 +21,7 @@ const Resume = () => {
                     The page you are looking for might have been removed had its name changed or is
                     temporarily unavailable.
                 </p>
-                <a href="/">
+                <a href="/Portfolio">
                     <Button variant="contained">Home Page</Button>
                 </a>
             </Box>
