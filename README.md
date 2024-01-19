@@ -33,6 +33,14 @@ This repository houses the codebase for my personal portfolio website. The websi
 
 Feel free to use this repository as a template for your own portfolio website. Update the content, add your projects, and customize the styling to reflect your personal brand.
 
+**Some Notes**
+
+1. As this project will be doployed to Github Pages, some changes must be made:
+    - React Router is used but the main component is HashRouter ( instead of the common BrowserRouter).
+    - In package.json the homepage element was added for compatibility.
+2. Added a little script to copy the assets folder from src to dist. Some assets are loaded dinamically so this is necessary.
+3. Change the code in emailApi.ts to match your server side email api.
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE). Feel free to use and modify the code as needed for your own portfolio.
