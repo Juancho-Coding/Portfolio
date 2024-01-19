@@ -21,6 +21,7 @@ const Skills = ({ onVisible }: props) => {
         <section style={{ width: "100%" }} id="Skills" ref={ref}>
             <Box
                 sx={{
+                    flex: 1,
                     background: "linear-gradient(to bottom right, #32534c, black)",
                     pt: "140px",
                     pb: "140px",
@@ -98,16 +99,16 @@ const Skills = ({ onVisible }: props) => {
 };
 
 const skills = [
-    { title: "NodeJS", body: "", image: "src/assets/nodejs-icon.svg" },
-    { title: "ExpressJS", body: "", image: "src/assets/express.svg" },
-    { title: "JavaScript", body: "", image: "src/assets/logo-javascript.svg" },
-    { title: "TypeScript", body: "", image: "src/assets/typescript-2.svg" },
-    { title: "ReactJS", body: "", image: "src/assets/react.svg" },
-    { title: "HTML", body: "", image: "src/assets/html-1.svg" },
-    { title: "CSS", body: "", image: "src/assets/css-3.svg" },
-    { title: "Python", body: "", image: "src/assets/python.svg" },
-    { title: "Git", body: "", image: "src/assets/git.svg" },
-    { title: "LabVIEW", body: "", image: "src/assets/labview.svg" },
+    { title: "NodeJS", body: "", image: "nodejs-icon.svg" },
+    { title: "ExpressJS", body: "", image: "express.svg" },
+    { title: "JavaScript", body: "", image: "logo-javascript.svg" },
+    { title: "TypeScript", body: "", image: "typescript-2.svg" },
+    { title: "ReactJS", body: "", image: "react.svg" },
+    { title: "HTML", body: "", image: "html-1.svg" },
+    { title: "CSS", body: "", image: "css-3.svg" },
+    { title: "Python", body: "", image: "python.svg" },
+    { title: "Git", body: "", image: "git.svg" },
+    { title: "LabVIEW", body: "", image: "labview.svg" },
 ];
 
 type props = {

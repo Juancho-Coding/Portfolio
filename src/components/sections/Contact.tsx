@@ -3,6 +3,7 @@ import { Box } from "@mui/material";
 
 import { useIntersection } from "../../hooks/useIntersection";
 import ContactForm from "../ContactForm";
+import contact from "../../assets/contact.png";
 
 const Contact = ({ onVisible }: props) => {
     const ref = useRef<HTMLElement>(null);
@@ -20,9 +21,9 @@ const Contact = ({ onVisible }: props) => {
             id="Contact"
             ref={ref}
         >
-            <Box sx={{ display: "flex", flexDirection: "row", p: "30px", columnGap: 2 }}>
+            <Box sx={{ flex: 1, display: "flex", flexDirection: "row", p: "30px", columnGap: 2 }}>
                 <Box sx={{ display: { xs: "none", sm: "none", md: "block" } }}>
-                    <img src="src/assets/contact.png" alt="contact info" />
+                    <img src={contact} alt="contact info" />
                 </Box>
                 <Box sx={{ margin: "auto" }}>
                     <ContactForm />

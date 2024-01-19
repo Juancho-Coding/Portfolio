@@ -3,6 +3,7 @@ import { Typography, Card, Box } from "@mui/material";
 import classes from "./ProjectCard.module.css";
 import { useState } from "react";
 import { ProjectInformation } from "../assets/information";
+import imageUrl from "../utils/dinamicImport";
 
 const ProjectCard = ({ element, onClick }: props) => {
     const [mouseState, setMouseState] = useState(false);
@@ -44,7 +45,7 @@ const ProjectCard = ({ element, onClick }: props) => {
                     onClick(e, element.id);
                 }}
             >
-                <img width="100%" src={element.image} alt="green iguana" />
+                <img width="100%" src={imageUrl(element.image)} alt="green iguana" />
             </div>
         </Card>
     );

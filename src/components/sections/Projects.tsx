@@ -4,6 +4,7 @@ import "react-circular-progressbar/dist/styles.css";
 
 import { useIntersection } from "../../hooks/useIntersection";
 import ProjectsContainer from "../ProjectsContainer";
+import imageBackground from "../../assets/back.png";
 
 const Prjects = ({ onVisible }: props) => {
     const [color, setColor] = useState("#adad05");
@@ -23,11 +24,21 @@ const Prjects = ({ onVisible }: props) => {
         <section
             style={{
                 width: "100%",
+                height: "auto",
             }}
             id="Projects"
             ref={ref}
         >
-            <Box style={{ position: "relative", top: 0, left: 0, width: "100%", height: "auto" }}>
+            <Box
+                style={{
+                    flex: 1,
+                    position: "relative",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "auto",
+                }}
+            >
                 <Box
                     style={{
                         backgroundColor: `${color}`,
@@ -42,7 +53,7 @@ const Prjects = ({ onVisible }: props) => {
                     fs
                 </Box>
                 <img
-                    src="src/assets/back.png"
+                    src={imageBackground}
                     alt=""
                     width="100%"
                     height="100%"

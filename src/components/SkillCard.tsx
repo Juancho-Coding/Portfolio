@@ -1,5 +1,7 @@
 import { Typography, Card, CardContent, CardMedia } from "@mui/material";
 
+import imageUrl from "../utils/dinamicImport";
+
 const SkillCard = ({ title, image, maxWidth = 200 }: CardProps) => {
     return (
         <Card
@@ -20,7 +22,7 @@ const SkillCard = ({ title, image, maxWidth = 200 }: CardProps) => {
                 component="img"
                 alt="skill"
                 height="100px"
-                image={image}
+                image={imageUrl(image)}
                 sx={{ width: "100%", objectFit: "contain" }}
             />
             <CardContent style={{ paddingBottom: "10px" }}>
