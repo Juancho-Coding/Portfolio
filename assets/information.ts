@@ -30,7 +30,7 @@ Additionally, it communicates with a database to store metrics and results of ea
 #### *This project is currently being rewritten from LabVIEW to Web frameworks (Typescript, NodeJS, React)*
 
 `,
-        image: "src/assets/project1_thumb.jpg",
+        image: "project1_thumb.jpg",
         id: "1",
         github: "",
         demo: "",
@@ -52,7 +52,7 @@ platform!
 > **Stack** Frontend: React, MUI.
 > Backend: NodeJS, Typescript, MongoDB, Mongoose
 `,
-        image: "src/assets/chatclone_thumb.jpg",
+        image: "chatclone_thumb.jpg",
         id: "2",
         github: "https://github.com/Juancho-Coding/Chatbot-clone",
         demo: "",
@@ -66,7 +66,7 @@ making backups, AKA **node_modules**
 
 > **Stack** Pure NodeJS
 `,
-        image: "src/assets/cli_thumb.jpg",
+        image: "cli_thumb.jpg",
         id: "3",
         github: "https://github.com/Juancho-Coding/Utility-backup-cli",
         demo: "",
@@ -78,7 +78,7 @@ If you like this portfolio, feel free to check the code and use as you want.
 This page is mainly built with React an MUI, in the github page you will 
 find the instructions to clone the repository and
 run it in a local environment`,
-        image: "src/assets/portfolio_thumb.jpg",
+        image: "portfolio_thumb.jpg",
         id: "4",
         github: "https://github.com/Juancho-Coding/Portfolio",
         demo: "",
