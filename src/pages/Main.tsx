@@ -4,6 +4,7 @@ import Presentation from "../components/sections/Presentation";
 import Skills from "../components/sections/Skills";
 import Projects from "../components/sections/Projects";
 import Contact from "../components/sections/Contact";
+import Footer from "../components/Footer";
 
 const Main = () => {
     const [currentSection, setCurrentSection] = useState("Home");
@@ -15,6 +16,7 @@ const Main = () => {
             <Skills onVisible={setCurrentSection} />
             <Projects onVisible={setCurrentSection} />
             <Contact onVisible={setCurrentSection} />
+            <Footer />
         </div>
     );
 };
