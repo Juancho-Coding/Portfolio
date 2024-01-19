@@ -16,9 +16,9 @@ export const sendEmail = async (name: string, email: string, message: string) =>
 };
 
 export const sendEmailMock = async (
-    name: string,
-    email: string,
-    message: string,
+    _name: string,
+    _email: string,
+    _message: string,
     expected: "success" | "error"
 ) => {
     const response = await new Promise<boolean>((resolve, reject) => {
