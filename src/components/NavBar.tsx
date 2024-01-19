@@ -1,10 +1,9 @@
-import { Box, AppBar, Toolbar, Typography, Stack, Button } from "@mui/material";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import GitHubIcon from "@mui/icons-material/GitHub";
+import { Box, AppBar, Toolbar, Typography, Button } from "@mui/material";
 
 import LinkItem from "./LinkItem";
-import Medal from "./Medal";
+
 import { useEffect, useState } from "react";
+import MedalsGroup from "./MedalsGroup";
 
 const NavBar = ({ currentSection }: props) => {
     const [scrolled, setScrolled] = useState(false);
@@ -86,18 +85,7 @@ const NavBar = ({ currentSection }: props) => {
                             }}
                         >
                             {/* Section with links for linkedin and github */}
-                            <Stack direction="row" spacing={2}>
-                                <Medal
-                                    borderColor="#bbbbbb"
-                                    icon={<LinkedInIcon />}
-                                    url="https://www.linkedin.com/in/juanpabloalvarezovalle-backend-developer"
-                                />
-                                <Medal
-                                    borderColor="#bbbbbb"
-                                    icon={<GitHubIcon />}
-                                    url="https://github.com/Juancho-Coding"
-                                />
-                            </Stack>
+                            <MedalsGroup />
                         </Box>
                         <Box
                             sx={{
