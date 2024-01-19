@@ -18,7 +18,7 @@ const ContactForm = () => {
         try {
             setSending(true);
             // await sendEmail(name, email, message);
-            await sendEmailMock(name, email, message, "success");
+            await sendEmailMock(name, email, message, "error");
             setSendResult({ result: "success", message: "The email was sent" });
             setName("");
             setEmail("");

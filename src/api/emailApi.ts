@@ -1,5 +1,7 @@
 const baseUrl = "localhost:1234";
 
+// TODO make the adjustments to email server api
+
 export const sendEmail = async (name: string, email: string, message: string) => {
     const response = await fetch(`${baseUrl}/api/v1/sendEmail`, {
         method: "POST",
