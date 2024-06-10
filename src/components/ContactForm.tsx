@@ -1,7 +1,7 @@
 import { Alert, Box, Button, Card, CircularProgress, TextField, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 
-import { sendEmailMock } from "../api/emailApi";
+import { sendEmail } from "../api/emailApi";
 
 const ContactForm = () => {
     const [name, setName] = useState("");
@@ -18,7 +18,7 @@ const ContactForm = () => {
         try {
             setSending(true);
             // await sendEmail(name, email, message);
-            await sendEmailMock(name, email, message, "error");
+            await sendEmail(name, email, message);
             setSendResult({ result: "success", message: "The email was sent" });
             setName("");
             setEmail("");

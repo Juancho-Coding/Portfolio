@@ -1,9 +1,9 @@
-const baseUrl = "localhost:1234";
+const baseUrl = "https://capable-terrier-equipped.ngrok-free.app";
 
 // TODO make the adjustments to email server api
 
 export const sendEmail = async (name: string, email: string, message: string) => {
-    const response = await fetch(`${baseUrl}/api/v1/sendEmail`, {
+    const response = await fetch(`${baseUrl}/api/v1/sendmail`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

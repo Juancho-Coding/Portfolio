@@ -4,6 +4,7 @@ import LinkItem from "./LinkItem";
 
 import { useEffect, useState } from "react";
 import MedalsGroup from "./MedalsGroup";
+import { HashLink } from "react-router-hash-link";
 
 const NavBar = ({ currentSection }: props) => {
     const [scrolled, setScrolled] = useState(false);
@@ -98,7 +99,7 @@ const NavBar = ({ currentSection }: props) => {
                             }}
                         >
                             {/* link to redirect to contact form */}
-                            <a href="#Contact">
+                            <HashLink to="/#Contact">
                                 <Button
                                     sx={{
                                         whiteSpace: "nowrap",
@@ -120,7 +121,7 @@ const NavBar = ({ currentSection }: props) => {
                                 >
                                     Get in touch !
                                 </Button>
-                            </a>
+                            </HashLink>
                         </Box>
                     </Box>
                 </Toolbar>
