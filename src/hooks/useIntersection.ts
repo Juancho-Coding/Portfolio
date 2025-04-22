@@ -4,11 +4,13 @@ import { useEffect, useState } from "react";
  * hook to detect when a component entered into the viewport area
  * @param elementRef ref of a component
  * @param rootMargin optional margin offset to detect from
+ * @param activateOnChange if true, state will change on visible and invisible, if false will change on visible the first time only
  * @returns
  */
 export const useIntersection = (
     elementRef: React.RefObject<HTMLElement>,
-    rootMargin: string | undefined
+    rootMargin: string | undefined,
+    activateOnChange: boolean = true
 ) => {
     const [isVisible, setState] = useState(false);
 
@@ -18,7 +20,9 @@ export const useIntersection = (
             const current = elementRef.current;
             observer = new IntersectionObserver(
                 ([entry]) => {
-                    setState(entry.isIntersecting);
+                    setState((previous) =>
+                        activateOnChange ? entry.isIntersecting : previous || entry.isIntersecting
+                    );
                 },
                 { rootMargin, threshold: 0.5 }
             );

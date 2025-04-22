@@ -2,9 +2,10 @@ import { useRef, useEffect } from "react";
 import { Box, Typography, Button } from "@mui/material";
 import { TypeAnimation } from "react-type-animation";
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
+import { HashLink } from "react-router-hash-link";
 
 import { useIntersection } from "../../hooks/useIntersection";
-import coding from "../../assets/test.png";
+import coding from "../../assets/test.webp";
 import classes from "./Presentation.module.css";
 
 const Presentation = ({ onVisible }: props) => {
@@ -84,7 +85,7 @@ const Presentation = ({ onVisible }: props) => {
                     <Typography sx={{ color: "lightgray", fontSize: "1.2rem", mt: "10px" }}>
                         {"Look no further, Bring on the challenges! 💻🚀"}
                     </Typography>
-                    <a href="#Contact">
+                    <HashLink to="/#Contact">
                         <Button
                             sx={{
                                 color: "white",
@@ -100,7 +101,7 @@ const Presentation = ({ onVisible }: props) => {
                         >
                             Contact me
                         </Button>
-                    </a>
+                    </HashLink>
                 </Box>
                 <Box
                     sx={{

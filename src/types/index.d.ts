@@ -3,6 +3,7 @@ declare module "*.module.css" {
     export default content;
 }
 
+declare module "*.webp";
 declare module "*.png";
 declare module "*.svg";
 declare module "*.pdf";
