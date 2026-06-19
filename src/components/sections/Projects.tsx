@@ -1,115 +1,84 @@
-import { useEffect, useRef, useState } from "react";
-import { Box, Typography } from "@mui/material";
-import "react-circular-progressbar/dist/styles.css";
+import { useEffect, useRef } from 'react'
+import { Box, Typography } from '@mui/material'
+import 'react-circular-progressbar/dist/styles.css'
 
-import { useIntersection } from "../../hooks/useIntersection";
-import ProjectsContainer from "../ProjectsContainer";
-import imageBackground from "../../assets/back.png";
+import { useIntersection } from '../../hooks/useIntersection'
+import ProjectsContainer from '../ProjectsContainer'
+import { useTranslation } from 'react-i18next'
+import { useMediaQuery } from '@mui/material'
 
 const Prjects = ({ onVisible }: props) => {
-    const [color, setColor] = useState("#adad05");
+  const small = useMediaQuery('(max-width: 900px)')
+  const { t } = useTranslation(['projects', 'common'])
+  const ref = useRef<HTMLElement>(null)
+  const isVisible = useIntersection(ref, '0px')
 
-    const ref = useRef<HTMLElement>(null);
-    const isVisible = useIntersection(ref, "0px");
+  useEffect(() => {
+    if (isVisible) onVisible('Projects')
+  }, [isVisible])
 
-    const selectionHandler = () => {
-        setColor("#" + Math.random().toString(16).substr(-6));
-    };
-
-    useEffect(() => {
-        if (isVisible) onVisible("Projects");
-    }, [isVisible]);
-
-    return (
-        <section
-            style={{
-                width: "100%",
-                height: "auto",
+  return (
+    <section
+      style={{
+        width: '100%',
+        height: 'auto',
+      }}
+      id="Projects"
+      ref={ref}
+    >
+      <Box
+        flex={1}
+        position="relative"
+        top={0}
+        left={0}
+        width="100%"
+        height="auto"
+      >
+        {/* a partir de este punto se ingresa el contenido */}
+        <Box style={{ position: 'relative', zIndex: 2 }}>
+          <Box
+            sx={{
+              pt: '100px',
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              justifyContent: 'center',
             }}
-            id="Projects"
-            ref={ref}
-        >
+          >
             <Box
-                style={{
-                    flex: 1,
-                    position: "relative",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "auto",
-                }}
+              sx={{
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+                flexDirection: 'column',
+                alignItems: 'stretch',
+                pb: '50px',
+              }}
             >
-                <Box
-                    style={{
-                        backgroundColor: `${color}`,
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        width: "100%",
-                        height: "100%",
-                        zIndex: 0,
-                    }}
-                >
-                    fs
-                </Box>
-                <img
-                    src={imageBackground}
-                    alt=""
-                    width="100%"
-                    height="100%"
-                    style={{
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        objectFit: "fill",
-                        zIndex: 1,
-                    }}
-                />
-                {/* a partir de este punto se ingresa el contenido */}
-                <Box style={{ position: "relative", zIndex: 2 }}>
-                    <Box
-                        sx={{
-                            pt: "100px",
-                            width: "100%",
-                            height: "100%",
-                            display: "flex",
-                            justifyContent: "center",
-                        }}
-                    >
-                        <Box
-                            sx={{
-                                width: "100%",
-                                display: "flex",
-                                justifyContent: "center",
-                                flexDirection: "column",
-                                alignItems: "stretch",
-                                pb: "50px",
-                            }}
-                        >
-                            <Typography
-                                sx={{
-                                    fontSize: "4rem",
-                                    fontWeight: "800",
-                                    fontFamily: "Poppins",
-                                    textAlign: "center",
-                                    position: "relative",
-                                    top: "0px",
-                                }}
-                            >
-                                Projects
-                            </Typography>
+              <Typography
+                sx={{
+                  fontSize: small ? '2rem' : '4rem',
+                  fontWeight: '800',
+                  fontFamily: 'Poppins',
+                  textAlign: 'center',
+                  position: 'relative',
+                  top: '0px',
+                }}
+              >
+                {t('project')}
+              </Typography>
 
-                            <ProjectsContainer onSelection={selectionHandler} />
-                        </Box>
-                    </Box>
-                </Box>
+              <ProjectsContainer onSelection={() => {}} />
             </Box>
-        </section>
-    );
-};
+          </Box>
+        </Box>
+      </Box>
+    </section>
+  )
+}
 
 type props = {
-    onVisible: React.Dispatch<React.SetStateAction<string>>;
-};
+  onVisible: React.Dispatch<React.SetStateAction<string>>
+}
 
-export default Prjects;
+export default Prjects

@@ -1,32 +1,58 @@
-import { Box, Button } from "@mui/material";
+import { Box, Button, Typography } from '@mui/material'
+import { useTranslation } from 'react-i18next'
 
-import classes from "./NotFound.module.css";
+const h1 = {
+  display: 'inline-block',
+  font: 'Poppins, sans-serif',
+  color: '#222',
+  fontSize: '10rem',
+  letterSpacing: '10px',
+  margin: 0,
+  fontWeight: '700',
+  textShadow: '2px 2px 0 #c9c9c9, -2px -2px 0 #c9c9c9',
+}
 
-const Resume = () => {
-    return (
-        <Box
-            width="100%"
-            height="100vh"
-            display="flex"
-            justifyContent="center"
-            alignItems="stretch"
+const Page404 = () => {
+  const { t } = useTranslation()
+  return (
+    <Box
+      width="100%"
+      height="100vh"
+      display="flex"
+      flexDirection="column"
+      justifyContent="center"
+      alignItems="center"
+      boxSizing="border-box"
+      rowGap="10px"
+      padding="20px"
+    >
+      <Box display="flex">
+        <Typography variant="h1" sx={h1}>
+          4
+        </Typography>
+        <Typography
+          variant="h1"
+          sx={{
+            ...h1,
+            textShadow:
+              '2px 2px 0 #ffab00, -2px -2px 0 #ffab00, 0 0 8px #ff8700',
+          }}
         >
-            <Box className={classes.notfound}>
-                <Box className={classes["notfound-404"]} mb={3}>
-                    <h1>
-                        4<span>0</span>4
-                    </h1>
-                </Box>
-                <p>
-                    The page you are looking for might have been removed had its name changed or is
-                    temporarily unavailable.
-                </p>
-                <a href="/Portfolio">
-                    <Button variant="contained">Home Page</Button>
-                </a>
-            </Box>
-        </Box>
-    );
-};
+          0
+        </Typography>
+        <Typography variant="h1" sx={h1}>
+          4
+        </Typography>
+      </Box>
+      <Box>
+        <Typography textAlign="center">{t('message_404')}</Typography>
+      </Box>
+      <Button></Button>
+      <a href="/">
+        <Button variant="contained">{t('message_404_button')}</Button>
+      </a>
+    </Box>
+  )
+}
 
-export default Resume;
+export default Page404

@@ -1,13 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab:wght@300;400;500;600;800&family=Work+Sans&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab:wght@300;400;500;600;800&family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap');
 
 body,
 html {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    background: #05101c;
-    color: white;
-    font-family: "Poppins", "Roboto Slab", serif;
-    scroll-behavior: smooth;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: 'Poppins', 'Roboto Slab', serif;
+  scroll-behavior: smooth;
 }

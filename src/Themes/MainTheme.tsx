@@ -1,24 +1,24 @@
-import { createTheme, ThemeProvider } from "@mui/material";
-import { ReactNode } from "react";
+import { createTheme, ThemeProvider } from '@mui/material/styles'
+import { ReactNode } from 'react'
 
 const theme = createTheme({
-    typography: {
-        fontFamily: ["Roboto Slab", "Poppins"].join(","),
+  typography: {
+    fontFamily: ['Roboto Slab', 'Poppins'].join(','),
+  },
+  palette: {
+    primary: {
+      main: '#323753',
     },
-    palette: {
-        primary: {
-            main: "#323753",
-        },
-        secondary: {
-            main: "#32534c",
-        },
+    secondary: {
+      main: '#32534c',
     },
-});
+  },
+})
 
 const MainTheme = ({ children }: props) => {
-    return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
-};
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>
+}
 
-type props = { children?: ReactNode };
+type props = { children?: ReactNode }
 
-export default MainTheme;
+export default MainTheme

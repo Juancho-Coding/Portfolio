@@ -1,35 +1,39 @@
-const baseUrl = "https://capable-terrier-equipped.ngrok-free.app";
+const baseUrl = 'https://capable-terrier-equipped.ngrok-free.app'
 
 // TODO make the adjustments to email server api
 
-export const sendEmail = async (name: string, email: string, message: string) => {
-    const response = await fetch(`${baseUrl}/api/v1/sendmail`, {
-        method: "POST",
+export const sendEmail = async (
+    name: string,
+    email: string,
+    message: string
+) => {
+    const response = await fetch(`${baseUrl}/API/v1/sendmail`, {
+        method: 'POST',
         headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
         },
         body: JSON.stringify({ name, email, message }),
-    });
+    })
     if (!response.ok) {
-        throw new Error("Unable to contact mail server");
+        throw new Error('Unable to contact mail server')
     }
-    const data = await response.json();
-    return data;
-};
+    const data = await response.json()
+    return data
+}
 
 export const sendEmailMock = async (
     _name: string,
     _email: string,
     _message: string,
-    expected: "success" | "error"
+    expected: 'success' | 'error'
 ) => {
     const response = await new Promise<boolean>((resolve, reject) => {
         setTimeout(() => {
-            if (expected === "success") resolve(true);
+            if (expected === 'success') resolve(true)
             else {
-                reject(new Error("Unable to contact mail server"));
+                reject(new Error('Unable to contact mail server'))
             }
-        }, 2000);
-    });
-    return response;
-};
+        }, 2000)
+    })
+    return response
+}
