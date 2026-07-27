@@ -1,5 +1,5 @@
 export const es_nav_dict = {
-  My_Portfolio: 'Mi ortafolio',
+  My_Portfolio: 'Mi Portafolio',
   Home: 'Inicio',
   About: 'Sobre mi',
   Skills: 'Habilidades',

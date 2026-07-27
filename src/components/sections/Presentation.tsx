@@ -54,13 +54,13 @@ const Presentation = ({ onVisible }: props) => {
             sequence={[
               `${t('greeting')} Juan Pablo\n`,
               10,
-              `${t('greeting')} Juan Pablo\nBackend Developer 😎`,
+              `${t('greeting')} Juan Pablo\nBackend Developer ☁️`,
               1000,
-              `${t('greeting')} Juan Pablo\nFrontend Developer 🎨`,
+              `${t('greeting')} Juan Pablo\nIoT & Real-Time Systems ⚡`,
               1000,
-              `${t('greeting')} Juan Pablo\nLabVIEW Developer 💻`,
+              `${t('greeting')} Juan Pablo\nSystems Integration 💻`,
               1000,
-              `${t('greeting')} Juan Pablo\nElectronics Engineer 🛠️`,
+              `${t('greeting')} Juan Pablo\nHardware Meets Software 🛠️`,
               1000,
             ]}
             wrapper="span"
@@ -84,12 +84,13 @@ const Presentation = ({ onVisible }: props) => {
                 px: 2,
                 py: 1,
                 mt: 2,
+                textTransform: 'none',
                 ':hover': {
                   bgcolor: 'primary.main',
                 },
               }}
               endIcon={<ArrowForwardOutlinedIcon />}
-              variant="text"
+              variant="contained"
             >
               {t('lets_talk', { ns: 'common' })}
             </Button>

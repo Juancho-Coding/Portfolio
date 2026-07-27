@@ -83,8 +83,24 @@ const Skills = ({ onVisible }: props) => {
             >
               {/* Section backend */}
               <SkillContaniner
-                title="Backend"
+                title={t('skill_title_backend')}
                 skills={skills_back}
+                md={matchesMd}
+                animate={animate}
+                ref={refContainer}
+              />
+              {/* Section realtime */}
+              <SkillContaniner
+                title={t('skill_realtime')}
+                skills={skills_realtime}
+                md={matchesMd}
+                animate={animate}
+                ref={refContainer}
+              />
+              {/* Section db */}
+              <SkillContaniner
+                title={t('skill_database')}
+                skills={skills_db}
                 md={matchesMd}
                 animate={animate}
                 ref={refContainer}
@@ -97,14 +113,7 @@ const Skills = ({ onVisible }: props) => {
                 animate={animate}
                 ref={refContainer}
               />
-              {/* Section db */}
-              <SkillContaniner
-                title={t('database')}
-                skills={skills_db}
-                md={matchesMd}
-                animate={animate}
-                ref={refContainer}
-              />
+
               {/* Section others */}
               <SkillContaniner
                 title={t('other')}
@@ -204,19 +213,27 @@ const skills_back = [
   { title: 'TypeScript', body: '', image: 'typescript-2.svg' },
 ]
 
+const skills_realtime = [
+  { title: 'MQTT', body: '', image: 'mqtt.svg' },
+  { title: 'Ws/Socket.IO', body: '', image: 'socketio.svg' },
+  { title: 'Modbus', body: '', image: 'modbus.svg' },
+  { title: 'OPC', body: '', image: 'opc.svg' },
+]
+
 const skills_front = [
   { title: 'ReactJS', body: '', image: 'react.svg' },
-  { title: 'HTML', body: '', image: 'html-1.svg' },
-  { title: 'CSS', body: '', image: 'css-3.svg' },
+  { title: 'Electron', body: '', image: 'electron.svg' },
 ]
 
 const skills_db = [
   { title: 'PostgreSQL', body: '', image: 'postgres.svg' },
   { title: 'MongoDB', body: '', image: 'mongo.svg' },
+  { title: 'Redis', body: '', image: 'redis.svg' },
 ]
 
 const skills_other = [
-  { title: 'Python', body: '', image: 'python.svg' },
   { title: 'Git', body: '', image: 'git.svg' },
-  { title: 'LabVIEW', body: '', image: 'labview.svg' },
+  { title: 'Docker', body: '', image: 'docker.svg' },
+  //{ title: 'Python', body: '', image: 'python.svg' },
+  //{ title: 'LabVIEW', body: '', image: 'labview.svg' },
 ]

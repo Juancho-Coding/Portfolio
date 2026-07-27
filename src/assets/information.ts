@@ -10,13 +10,13 @@ export type ProjectInformation = {
 
 export const projects: ProjectInformation[] = [
   {
-    title: 'project_cinema_title',
-    description: `project_cinema_description`,
-    image: 'project-cinema/cinemafrontpage.webp',
+    title: 'project_iot',
+    description: `project_iot_description`,
+    image: 'chatclone_thumb.jpg',
     id: '1',
-    github: 'https://github.com/Juancho-Coding/movie-theater',
-    demo: 'https://movie-theater-87qg.vercel.app/',
-    page: '',
+    github: '',
+    demo: '',
+    page: '/#/projectDetails/LabDashboard',
   },
   {
     title: 'project_dashboard_title',
@@ -37,12 +37,12 @@ export const projects: ProjectInformation[] = [
     page: '/#/projectDetails/calibration_Meters',
   },
   {
-    title: 'project_chatclone_title',
-    description: `project_chatclone_description`,
-    image: 'chatclone_thumb.jpg',
+    title: 'project_cinema_title',
+    description: `project_cinema_description`,
+    image: 'project-cinema/cinemafrontpage.webp',
     id: '4',
-    github: 'https://github.com/Juancho-Coding/Chatbot-clone',
-    demo: '',
+    github: 'https://github.com/Juancho-Coding/movie-theater',
+    demo: 'https://movie-theater-87qg.vercel.app/',
     page: '',
   },
 ]

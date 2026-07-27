@@ -10,7 +10,8 @@ import { useEffect, useState } from 'react'
 export const useIntersection = (
   elementRef: React.RefObject<HTMLElement>,
   rootMargin: string | undefined,
-  activateOnChange: boolean = true
+  activateOnChange: boolean = true,
+  threshold: number = 0.3
 ) => {
   const [isVisible, setState] = useState(false)
 
@@ -26,7 +27,7 @@ export const useIntersection = (
               : previous || entry.isIntersecting
           )
         },
-        { rootMargin, threshold: 0.3 }
+        { rootMargin, threshold }
       )
       current && observer?.observe(current)
     }

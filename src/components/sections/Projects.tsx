@@ -11,7 +11,7 @@ const Prjects = ({ onVisible }: props) => {
   const small = useMediaQuery('(max-width: 900px)')
   const { t } = useTranslation(['projects', 'common'])
   const ref = useRef<HTMLElement>(null)
-  const isVisible = useIntersection(ref, '0px')
+  const isVisible = useIntersection(ref, '0px', true, 0.1)
 
   useEffect(() => {
     if (isVisible) onVisible('Projects')

@@ -13,90 +13,41 @@ export const en_nav_dict = {
 
 export const en_presentation_dict = {
   greeting: "Hi, I'm ",
-  tagline: `Backend developer with frontend skills — I create systems that perform and scale.
-Whether it’s APIs, databases, or user interfaces, I write code that solves real problems.`,
+  tagline: `I connect the physical and digital worlds — turning sensor data into real-time decisions through
+  backend systems built with Node.js, TypeScript, and industrial protocols`,
 }
 
 export const en_about_dict = {
   about: 'About me',
-  about_text1: `I’m a passionate **software developer** with a strong focus on backend systems, infrastructure, and solid knowledge and experience in frontend development using **React**.
-I craft reliable, scalable, and maintainable solutions with technologies like **Node.js, Docker, JavaScript, and TypeScript**, always aiming to solve real-world problems efficiently.\n`,
-  about_text2: `On the frontend, I deliver intuitive and responsive user interfaces, while on the backend, I ensure robust system architecture and smooth data flows.
-I stay current with evolving technologies, continuously improving my skills in areas like **Python** and containerization to keep delivering at high standards.
-If you’re looking for someone who’s driven, adaptable, and ready to contribute across the stack — from the UI to the database — you’re in the right place`,
+  about_text1: `I'm a backend developer with 6+ years building software that bridges hardware and web applications. I work with Node.js, TypeScript, and PostgreSQL to
+  expose real-time data through REST APIs and WebSockets — and I talk to the physical world through industrial protocols like MQTT, Modbus, and OPC\n`,
+  about_text2: `Most backend developers have never integrated a PLC or a sensor. That combination of modern backend and instrumentation is what makes my profile uncommon 
+  — and it's my edge in IoT, industrial software, and real-time systems`,
 }
 
 export const en_skills_dict = {
   skill: 'Skills',
   database: 'Databases',
   other: 'Others',
+  skill_title_backend: 'Backend & Runtime',
+  skill_database: 'Database & Cache',
+  skill_realtime: 'Real-Time & IoT',
 }
 
 export const en_projects_dict = {
-  project: 'Projects',
-  description: `Here you will find some projects I've done \nduring my career, some about software development,\nothers about electronics, go ahead and click one`,
+  project: 'Featured Projects',
+  description: `Real-world systems I've built — from real-time IoT backends to industrial hardware integration`,
   button_live: 'Live Demo',
   button_github: 'GitHub',
-  button_details: 'Details',
-  project_calbench_title: 'Calibration Bench for Domestic Water Meters',
-  project_calbench_description: `This standalone software has been developed to execute calibration procedures on both residential and commercial water meters.
-  Its main objective is to assist the technician through a guided, step-by-step process at each stage, ensuring compliance with current regulations.
-  During calibration, the system allows the configuration of parameters such as flow rate, pressure, and temperature, and it directly controls the hardware
-  components involved — including hydraulic pumps, valves, and actuators — to automate the water flow and positioning required for each test. 
-  
-  In parallel, the software automatically records electrical signals from sensors and measurement devices, processes the collected data, and generates technical calibration
-  reports in PDF format. These documents, along with the test results, are stored in a PostgreSQL database, ensuring data integrity, traceability, and availability
-  for future reference
-  
-  > **Stack**: LabVIEW, PostgresQL, SQLite, .NET  
-  > **Communication Protocols**: OPC, Modbus, MQTT
-
-  *Since this project was developed under a confidentiality agreement with the client, the source code is not publicly available.  If you’d like to learn more, feel free to reach out to me*
-  `,
-  project_cinema_title: 'Cinema Reservation System',
-  project_cinema_description: `
-Cinema Reservation System is a full-stack web application designed to simplify and enhance the movie ticket
-booking experience. Users can browse movies by date, view available showtimes, and reserve seats with real-time
-updates powered by WebSockets. The system includes a simulated checkout process with credit card validation, and
-provides tickets via PDF download or email delivery. Built with a focus on seamless UX and reliable performance,
-the app ensures that seat availability is always accurate and up to date.
-
-> **Frontend**: React, React Router, TypeScript, MUI, Socket.IO, Mobile Responsive  
-> **Backend**: Node.js, Express, TypeScript, Socket.IO, Nodemailer  
-> **Database**: PostgreSQL  
-> **Other Tools**: Docker, JWT for authentication, PDF generation
-
-Building this system sharpened my ability to manage real-time data, coordinate frontend-backend communication, and design secure, user-friendly full-stack solutions  
-
-*This project is running on Vercel and the backend is running in a private Docker server*`,
-  project_dashboard_title:
-    'Management and Dashboard Application for Calibration Laboratory',
-  project_dashboard_description: `
-This application was developed for a calibration lab specializing in household water meters. It streamlines operations through features like work order creation,
-device intake, client and user management, and detailed entry of metrological data. An integrated analytics dashboard shows real-time insights into pending tasks,
-operator performance, and key device metrics. The system also enables generating detailed Excel reports and printing labels with Zebra printers,
-improving traceability. Designed for both admins and technicians, it offers an intuitive and efficient way to manage daily lab workflows.
-
-> **Frontend**: Electron, React, React Router, TypeScript, MUI  
-> **Backend**: Node.js, Express, TypeScript  
-> **Database**: PostgreSQL  
-> **Other Tools**: ExcelJS, JWT, BCrypt, Worker Threads, Child Processes, Electron Builder
-
-*Since this project was developed under a confidentiality agreement with the client, the source code is not publicly available.  If you’d like to learn more, feel free to reach out to me*
-`,
-  project_chatclone_title: 'ChatGPT clone Page',
-  project_chatclone_description: `
-This is a web-based chat application that mimics the functionality of ChatGPT. Users can send messages and receive AI-generated responses in real-time. 
-The application leverages the ChatGPT API to provide conversational capabilities, making it an interactive and engaging tool for users.
-
-The project focuses on delivering a seamless user experience with a clean and intuitive interface. It also ensures efficient communication with the API for fast and accurate responses.
-
-> **Frontend**: React, TypeScript, TailwindCSS  
-> **Backend**: Node.js, Express, TypeScript  
-> **API**: OpenAI ChatGPT API  
-> **Other Tools**: Docker, JWT for authentication
-
-#### *This project showcases my ability to integrate third-party APIs and build responsive, user-friendly web applications.*`,
+  button_details: 'Read More',
+  project_dashboard_title: 'Calibration Lab Management System',
+  project_dashboard_description: `Desktop application that manages the full operational workflow of a calibration lab — work orders, barcode-labeled meter intake, automated Excel reporting, and real-time metrics — working alongside 3 calibration and testing benches. 4 years in production, evolved through 5 lab expansions`,
+  project_iot: 'Real-Time IoT Monitoring Dashboard',
+  project_iot_description: `Backend that ingests sensor data via MQTT and REST APIs, distributes it through Redis pub/sub, and pushes live updates to the browser with Socket.io. Deployment in progress`,
+  project_calbench_title: 'Water Meter Calibration & Testing Suite',
+  project_calbench_description: `3 systems that control pumps, valves, and sensors in real time to automate water meter calibration — eliminating manual errors and enabling tests the lab couldn't perform before`,
+  project_cinema_title: 'Cinema Booking System',
+  project_cinema_description: `Full-stack seat reservation app with real-time availability updates via WebSockets, JWT authentication, and automated ticket delivery through PDF generation and email.`,
 }
 
 export const en_dashboard_dict = {
