@@ -16,7 +16,7 @@ export const projects: ProjectInformation[] = [
     id: '1',
     github: '',
     demo: 'https://juanchocoding.dev/',
-    page: '/#/projectDetails/IotSystem',
+    page: '#/projectDetails/IotSystem',
   },
   {
     title: 'project_calbench_title',
@@ -25,7 +25,7 @@ export const projects: ProjectInformation[] = [
     id: '2',
     github: '',
     demo: '',
-    page: '/#/projectDetails/calibration_Meters',
+    page: '#/projectDetails/calibration_Meters',
   },
   {
     title: 'project_dashboard_title',
@@ -34,7 +34,7 @@ export const projects: ProjectInformation[] = [
     id: '3',
     github: '',
     demo: '',
-    page: '/#/projectDetails/managementLab',
+    page: '#/projectDetails/managementLab',
   },
   // {
   //   title: 'project_cinema_title',
