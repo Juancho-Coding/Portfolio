@@ -30,7 +30,7 @@ const CalibrationBench = () => {
         {
           type: 'link',
           textButton: t('link3'),
-          link: `/#/projectDetails/managementLab`,
+          link: `/projectDetails/managementLab`,
         },
       ]}
       heroText={t('hero_text')}

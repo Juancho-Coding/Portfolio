@@ -28,7 +28,7 @@ const ManagementLab = () => {
         {
           type: 'link',
           textButton: t('link3'),
-          link: `/#/projectDetails/calibration_Meters`,
+          link: `/projectDetails/calibration_Meters`,
         },
       ]}
       heroText={t('hero_text')}

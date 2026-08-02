@@ -1,4 +1,4 @@
-import { createHashRouter, Outlet, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
 import './App.css'
 import './localization/localization'
 import Main from './pages/Main'
@@ -8,7 +8,7 @@ import CalibrationBench from './pages/CalibrationBench'
 import IotSystem from './pages/IotSystem'
 import ManagementLab from './pages/ManagementLab'
 
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
     path: '/',
     element: <Main />,

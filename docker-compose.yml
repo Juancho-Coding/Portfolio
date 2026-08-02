@@ -1,0 +1,26 @@
+name: portfolio
+
+services:
+  portfolio:
+    image: ghcr.io/juancho-coding/portfolio:latest
+    restart: unless-stopped
+    networks:
+      - proxy_network
+    environment:
+      NODE_ENV: production
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=portfolio_proxy_network
+      - traefik.http.routers.portfolio.rule=Host(`portfolio.juanchocoding.dev`)
+      - traefik.http.routers.portfolio.entrypoints=websecure
+      - traefik.http.routers.portfolio.tls=true
+      - traefik.http.routers.portfolio.tls.certresolver=letsencrypt
+      - traefik.http.routers.portfolio.priority=1
+      - traefik.http.services.portfolio.loadbalancer.server.port=80
+
+##----------- infraestructure -----------------
+
+networks:
+  proxy_network:
+    driver: bridge
+    external: true
