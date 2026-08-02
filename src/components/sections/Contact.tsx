@@ -1,13 +1,14 @@
 import { useRef, useEffect } from 'react'
-import { Box } from '@mui/material'
+import { Box, Link, Typography, useMediaQuery } from '@mui/material'
 
 import { useIntersection } from '../../hooks/useIntersection'
 import ContactForm from '../ContactForm'
-import contact from '../../assets/contact.png'
+import coding from '../../assets/profile.webp'
 
 const Contact = ({ onVisible }: props) => {
   const ref = useRef<HTMLElement>(null)
   const isVisible = useIntersection(ref, '0px')
+  const small = useMediaQuery('(max-width: 900px)')
 
   useEffect(() => {
     if (isVisible) onVisible('Contacts')
@@ -24,7 +25,7 @@ const Contact = ({ onVisible }: props) => {
       <Box
         sx={{
           display: 'flex',
-          flexDirection: 'row',
+          flexDirection: small ? 'column' : 'row',
           p: '30px',
           justifyContent: 'space-evenly',
           alignItems: 'center',
@@ -32,8 +33,48 @@ const Contact = ({ onVisible }: props) => {
           background: 'linear-gradient(to bottom right, #32534c, black)',
         }}
       >
-        <Box sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}>
-          <img src={contact} alt="contact info" />
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <Box
+            borderRadius="50%"
+            overflow="hidden"
+            sx={{
+              display: { xs: 'none', md: 'block' },
+              maxHeight: '200px',
+              maxWidth: '200px',
+            }}
+          >
+            <img
+              style={{ objectFit: 'cover' }}
+              width="100%"
+              height="100%"
+              src={coding}
+              alt="Personal contact"
+            />
+          </Box>
+          <Box textAlign="center">
+            <Typography variant="h6">
+              Juan Pablo Alvarez · Backend Developer
+            </Typography>
+            <Link
+              href="mailto:juanpabloalvarezovalle@gmail.com"
+              underline="hover"
+              color="inherit"
+            >
+              📧 juanpabloalvarezovalle@gmail.com
+            </Link>
+            <Typography variant="body2">
+              📍 Bogotá, Colombia GMT-5 · Remote
+            </Typography>
+            <Typography variant="body2">
+              {'Open to Backend roles Usually replies in <24h'}
+            </Typography>
+          </Box>
         </Box>
         <Box>
           <ContactForm />

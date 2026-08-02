@@ -5,16 +5,30 @@ import ArrowForwardOutlinedIcon from '@mui/icons-material/ArrowForwardOutlined'
 import { HashLink } from 'react-router-hash-link'
 
 import { useIntersection } from '../../hooks/useIntersection'
-import coding from '../../assets/profile.webp'
+import photo from '../../assets/photo.jpg'
 import classes from './Presentation.module.css'
 import { useTranslation } from 'react-i18next'
 
 const Presentation = ({ onVisible }: props) => {
-  const { t } = useTranslation(['presentation', 'common'])
-  const message = useMemo(() => t('tagline'), [])
-
+  const { t, i18n } = useTranslation(['presentation'])
   const ref = useRef<HTMLElement>(null)
   const isVisible = useIntersection(ref, '0px')
+
+  const sequence = useMemo(
+    () => [
+      `${t('greeting')} Juan Pablo\n`,
+      10,
+      `${t('greeting')} Juan Pablo\nBackend Developer ☁️`,
+      1000,
+      `${t('greeting')} Juan Pablo\nIoT & Real-Time Systems ⚡`,
+      1000,
+      `${t('greeting')} Juan Pablo\nSystems Integration 💻`,
+      1000,
+      `${t('greeting')} Juan Pablo\nHardware Meets Software 🛠️`,
+      1000,
+    ],
+    [i18n.language]
+  )
 
   useEffect(() => {
     if (isVisible) onVisible('Home')
@@ -49,20 +63,10 @@ const Presentation = ({ onVisible }: props) => {
           }}
         >
           <TypeAnimation
+            key={i18n.language}
             style={{ whiteSpace: 'pre-line' }}
             className={classes['type-animation']}
-            sequence={[
-              `${t('greeting')} Juan Pablo\n`,
-              10,
-              `${t('greeting')} Juan Pablo\nBackend Developer ☁️`,
-              1000,
-              `${t('greeting')} Juan Pablo\nIoT & Real-Time Systems ⚡`,
-              1000,
-              `${t('greeting')} Juan Pablo\nSystems Integration 💻`,
-              1000,
-              `${t('greeting')} Juan Pablo\nHardware Meets Software 🛠️`,
-              1000,
-            ]}
+            sequence={sequence}
             wrapper="span"
             speed={50}
             repeat={Infinity}
@@ -75,7 +79,7 @@ const Presentation = ({ onVisible }: props) => {
               textAlign: 'justify',
             }}
           >
-            {message}
+            {t('tagline')}
           </Typography>
           <HashLink to="/#Contact">
             <Button
@@ -115,7 +119,7 @@ const Presentation = ({ onVisible }: props) => {
               style={{ objectFit: 'cover' }}
               width="100%"
               height="100%"
-              src={coding}
+              src={photo}
               alt="Coding personal"
             />
           </Box>

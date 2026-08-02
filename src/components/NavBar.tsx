@@ -1,4 +1,14 @@
-import { Box, AppBar, Toolbar, Typography, Button } from '@mui/material'
+import {
+  Box,
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  useMediaQuery,
+  IconButton,
+  Drawer,
+  Divider,
+} from '@mui/material'
 
 import LinkItem from './LinkItem'
 
@@ -9,11 +19,14 @@ import { useTranslation } from 'react-i18next'
 import { Select } from '@mui/material'
 import { MenuItem } from '@mui/material'
 import { FormControl } from '@mui/material'
+import MenuIcon from '@mui/icons-material/Menu'
 
 const NavBar = ({ currentSection }: props) => {
   const { t, i18n } = useTranslation()
   const [scrolled, setScrolled] = useState(false)
-  const [lang, setLang] = useState('en')
+  const [lang, setLang] = useState(i18n.language)
+  const small = useMediaQuery('(max-width: 900px)')
+  const [open, setOpen] = useState(false)
 
   // Effect to make the navbar transparent when scrolling
   useEffect(() => {
@@ -44,10 +57,12 @@ const NavBar = ({ currentSection }: props) => {
         <Toolbar
           sx={{
             display: 'flex',
+            flexDirection: 'row',
             justifyContent: 'space-between',
-            alignItems: 'stretch',
+            alignItems: 'center',
           }}
         >
+          {/* title and lang menu */}
           <Box display="flex" alignItems="flex-end">
             <Typography
               sx={{
@@ -81,68 +96,23 @@ const NavBar = ({ currentSection }: props) => {
               >
                 <MenuItem value="en">en</MenuItem>
                 <MenuItem value="es">es</MenuItem>
+                <MenuItem value="fr">fr</MenuItem>
               </Select>
             </FormControl>
           </Box>
-
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              flex: 2,
-            }}
-          >
-            <LinkItem
-              to="/#Home"
-              text={t('Home')}
-              dir="Home"
-              location={currentSection}
-            />
-            <LinkItem
-              to="/#About"
-              text={t('About')}
-              dir="About"
-              location={currentSection}
-            />
-            <LinkItem
-              to="/#Skills"
-              text={t('Skills')}
-              dir="Skills"
-              location={currentSection}
-            />
-            <LinkItem
-              to="/#Projects"
-              text={t('Projects')}
-              dir="Projects"
-              location={currentSection}
-            />
-          </Box>
-          <Box
-            sx={{
-              display: { xs: 'none', sm: 'none', md: 'flex' },
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            {/* Section with links for linkedin and github */}
-            <MedalsGroup />
-          </Box>
-          <Box
-            sx={{
-              display: { xs: 'none', sm: 'none', md: 'flex' },
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
+          {/* links */}
+          {!small && (
+            <LinksContainer small={small} currentSection={currentSection} />
+          )}
+          {/* medals */}
+          {!small && <Medals />}
+          {/* link contact */}
+          {!small && (
             <Box
               sx={{
+                height: '100%',
                 ml: '5px',
                 mr: '5px',
-                width: '100%',
-                flex: 3,
-                display: { xs: 'none', sm: 'none', md: 'flex' },
-                justifyContent: 'space-evenly',
               }}
             >
               {/* link to redirect to contact form */}
@@ -150,10 +120,13 @@ const NavBar = ({ currentSection }: props) => {
                 <Button
                   sx={{
                     fontSize: { xs: '0.9rem', sm: '0.9rem', md: '1.1rem' },
-                    '&:hover': { color: 'primary.light', background: 'white' },
+                    '&:hover': {
+                      color: 'primary.light',
+                      background: 'white',
+                    },
                     whiteSpace: 'nowrap',
-                    width: '100%',
                     color: 'white',
+                    textTransform: 'none',
                   }}
                   variant="text"
                 >
@@ -161,13 +134,130 @@ const NavBar = ({ currentSection }: props) => {
                 </Button>
               </HashLink>
             </Box>
-          </Box>
+          )}
+          {small && (
+            <Box>
+              <IconButton onClick={() => setOpen(true)}>
+                <MenuIcon sx={{ color: 'white' }} />
+              </IconButton>
+            </Box>
+          )}
         </Toolbar>
       </AppBar>
+      {/* drawer */}
+      <nav>
+        <Drawer
+          anchor="right"
+          container={undefined}
+          variant="temporary"
+          open={open}
+          onClose={() => setOpen(false)}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile.
+          }}
+          sx={{
+            display: small ? 'block' : 'none',
+            '& .MuiDrawer-paper': {
+              boxSizing: 'border-box',
+              width: '200px',
+              backgroundColor: (theme) => theme.palette.primary.main,
+            },
+          }}
+        >
+          <Box
+            onClick={() => setOpen(false)}
+            sx={{
+              textAlign: 'center',
+              width: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              rowGap: '10px',
+            }}
+          >
+            <Typography
+              variant="body1"
+              sx={{ my: '10px', color: 'white', fontWeight: '700' }}
+            >
+              {t('section')}
+            </Typography>
+            <Divider />
+            <LinksContainer small={small} currentSection={currentSection} />
+            <Divider />
+            <Medals />
+          </Box>
+        </Drawer>
+      </nav>
     </Box>
   )
 }
 
 type props = { currentSection: string }
+
+const Medals = () => {
+  return (
+    <Box
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
+      {/* Section with links for linkedin and github */}
+      <MedalsGroup />
+    </Box>
+  )
+}
+
+const LinksContainer = ({
+  currentSection,
+  small,
+}: {
+  currentSection: string
+  small: boolean
+}) => {
+  const { t } = useTranslation()
+  return (
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: small ? 'column' : 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex: 2,
+        rowGap: '5px',
+        columnGap: '7px',
+      }}
+    >
+      <LinkItem
+        small={small}
+        to="/#Home"
+        text={t('Home')}
+        dir="Home"
+        location={currentSection}
+      />
+      <LinkItem
+        small={small}
+        to="/#About"
+        text={t('About')}
+        dir="About"
+        location={currentSection}
+      />
+      <LinkItem
+        small={small}
+        to="/#Skills"
+        text={t('Skills')}
+        dir="Skills"
+        location={currentSection}
+      />
+      <LinkItem
+        small={small}
+        to="/#Projects"
+        text={t('Projects')}
+        dir="Projects"
+        location={currentSection}
+      />
+    </Box>
+  )
+}
 
 export default NavBar

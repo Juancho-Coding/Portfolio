@@ -1,7 +1,7 @@
 import { Typography, Card, Box } from '@mui/material'
 import { useState } from 'react'
 import { ProjectInformation } from '../assets/information'
-import imageUrl from '../utils/dinamicImport'
+import imageUrl from '../utils/dynamicImport'
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 import { Button } from '@mui/material'

@@ -3,11 +3,9 @@ import ChallengeTable from '../components/ChallengeTable'
 import DetailsViewTemplate from '../components/DetailsViewTemplate'
 import MermaidDiagram from '../components/MermaidDiagram'
 import { useLocation } from 'react-router-dom'
-import test_schema from '../assets/project-calibration/test_schema.svg'
-import { Box, Typography } from '@mui/material'
 
-const CalibrationBench = () => {
-  const { t } = useTranslation(['calibration_auite'])
+const ManagementLab = () => {
+  const { t } = useTranslation(['management_lab'])
   const location = useLocation()
   return (
     <DetailsViewTemplate
@@ -30,7 +28,7 @@ const CalibrationBench = () => {
         {
           type: 'link',
           textButton: t('link3'),
-          link: `/#/projectDetails/managementLab`,
+          link: `/#/projectDetails/calibration_Meters`,
         },
       ]}
       heroText={t('hero_text')}
@@ -60,10 +58,6 @@ const CalibrationBench = () => {
                 text1: t('challenge_content_item5_text1'),
                 text2: t('challenge_content_item5_text2'),
               },
-              {
-                text1: t('challenge_content_item6_text1'),
-                text2: t('challenge_content_item6_text2'),
-              },
             ]}
           />
         ),
@@ -73,7 +67,7 @@ const CalibrationBench = () => {
         title: t('architecture_title'),
         content: t('architecture_content'),
         component: {
-          item: <MermaidDiagram chart={calibrationSuiteArchitectureDiagram} />,
+          item: <MermaidDiagram chart={managementArchitectureDiagram} />,
           flexPriority: 2,
         },
       }}
@@ -100,11 +94,6 @@ const CalibrationBench = () => {
             summary: t('key_decision_item4_summary'),
             content: t('key_decision_item4_content'),
           },
-          {
-            title: t('key_decision_item5_title'),
-            summary: t('key_decision_item5_summary'),
-            content: t('key_decision_item5_content'),
-          },
         ],
       }}
       impact={{
@@ -126,6 +115,10 @@ const CalibrationBench = () => {
           {
             title: t('impact_keypoint3_title'),
             value: t('impact_keypoint3_content'),
+          },
+          {
+            title: t('impact_keypoint4_title'),
+            value: t('impact_keypoint4_content'),
           },
         ],
       }}
@@ -155,32 +148,14 @@ const CalibrationBench = () => {
         ],
       }}
       gallery={{
-        prefix: 'project-calibration',
+        prefix: 'project-management',
         images: [
-          {
-            img: 'imCalibration1.webp',
-            label: t('gallery_item1'),
-          },
-          {
-            img: 'bench1.webp',
-            label: t('gallery_item2'),
-          },
-          {
-            img: 'bench2.webp',
-            label: t('gallery_item3'),
-          },
-          {
-            img: 'bench3.webp',
-            label: t('gallery_item4'),
-          },
-          {
-            img: 'bench4.webp',
-            label: t('gallery_item5'),
-          },
-          {
-            img: 'bench5.webp',
-            label: t('gallery_item6'),
-          },
+          { img: 'managementfrontpage.webp', label: t('gallery_item1') },
+          { img: 'image1.webp', label: t('gallery_item2') },
+          { img: 'image5.webp', label: t('gallery_item3') },
+          { img: 'image4.webp', label: t('gallery_item4') },
+          { img: 'image7.webp', label: t('gallery_item5') },
+          { img: 'image6.webp', label: t('gallery_item6') },
         ],
       }}
       roadmap={{
@@ -196,61 +171,39 @@ const CalibrationBench = () => {
           },
         ],
       }}
-    >
-      <Box display="flex" flexDirection="column" alignItems="center">
-        <img
-          src={test_schema}
-          alt="Calibration suite diagram"
-          style={{ maxWidth: '100%' }}
-        />
-        <Typography>{t('architecture_annotation')}</Typography>
-      </Box>
-    </DetailsViewTemplate>
+    ></DetailsViewTemplate>
   )
 }
 
-const calibrationSuiteArchitectureDiagram = `
-flowchart TB
-
-    subgraph FIELD["Field layer"]
+const managementArchitectureDiagram = `
+flowchart LR
+  subgraph mgmtPC["MANAGEMENT PC (per bench)"]
     direction TB
-      SENSORS["Process sensors<br/>Valves and actuators"]
-      PLC["Industrial PLC"]
-      OPC["OPC server"]
-      SENSORS --> PLC
-      PLC --> OPC
+
+    subgraph electron["Electron App"]
+      direction LR
+
+      renderer["Renderer<br/>React SPA<br/>UI · forms · tables · reports view"]
+
+      subgraph main["Main Process — Node.js"]
+        direction TB
+        api["Express REST API<br/>Auth (bcrypt + roles)<br/>Business logic"]
+        workers["Worker Threads<br/>Excel report generation<br/>Thermal label printing"]
+        api -.spawns.-> workers
+      end
+
+      renderer -->|HTTP · localhost| api
+      renderer -->|IPC + preload<br/>native file/folder dialogs only| main
     end
 
-    subgraph SIM["Simulator"]
-      EMULATED["Emulated sensors"]
-    end
+    printer[("Zebra<br/>Thermal Printer")]
+    workers -->|ZPL / TSC over TCP| printer
+  end
 
-    MQTT{{"Mosquitto broker<br/>Local"}}
-    HAL["Hardware Abstraction Layer"]
-    LV["LabVIEW app<br/>Test orchestration"]
-    DB[("PostgreSQL<br/>Local")]
-    WEB["Local web server<br/>Serves tablet UI"]
-    TABLET["Operator tablet<br/>paho-mqtt in browser"]
-    XL["Excel template<br/>Raw data + formatted cert"]
-    OUT["PDF certificate<br/>Thermal label"]
+ 
+    db[("PostgreSQL<br/>Shared bench DB")]
 
-    LV -- "ActiveX: fill raw sheet, print" --> XL
-    LV -- "pub/sub Readings" <--> MQTT
-    SIM --> HAL
-    OPC -- "OPC UA" --> HAL
-    HAL --> LV
-    LV <--> DB
-    WEB -- "HTML/JS" --> TABLET
-    TABLET -- "MQTT over WebSockets" --> MQTT
-    XL --> OUT
-
-
-  classDef store fill:transparent,stroke:#FF9132,stroke-width:2px,color:#fff
-  classDef broker fill:transparent,stroke:#FF9132,stroke-width:2px,stroke-dasharray: 4 3,color:#fff
-  classDef hal fill:transparent,stroke:#FFFFFF,stroke-width:2px,color:#fff
-  class DB,XL store
-  class MQTT broker
-  class HAL hal
+  main -->|SQL| db
 `
 
-export default CalibrationBench
+export default ManagementLab

@@ -1,13 +1,12 @@
 import { createHashRouter, Outlet, RouterProvider } from 'react-router-dom'
 import './App.css'
-import { SoftwareCalibration } from './pages/SoftwareCalibration'
-
 import './localization/localization'
 import Main from './pages/Main'
 import NotFound from './pages/NotFound'
 import ParticlesUI from './utils/particles'
-import LabDashboard from './pages/LabDashboard'
-import CalibrationBench from './pages/calibrationBench'
+import CalibrationBench from './pages/CalibrationBench'
+import IotSystem from './pages/IotSystem'
+import ManagementLab from './pages/ManagementLab'
 
 const router = createHashRouter([
   {
@@ -17,15 +16,20 @@ const router = createHashRouter([
   },
   {
     path: '/projectDetails',
+    errorElement: <NotFound />,
     element: <Outlet />,
     children: [
       {
-        path: 'LabDashboard',
-        element: <LabDashboard />,
+        path: 'IotSystem',
+        element: <IotSystem />,
       },
       {
         path: 'calibration_Meters',
         element: <CalibrationBench />,
+      },
+      {
+        path: 'managementLab',
+        element: <ManagementLab />,
       },
     ],
   },

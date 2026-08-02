@@ -1,7 +1,7 @@
 import { Typography, Card, Box, Button } from '@mui/material'
 
 import { ProjectInformation } from '../assets/information'
-import imageUrl from '../utils/dinamicImport'
+import imageUrl from '../utils/dynamicImport'
 import Markdown from 'react-markdown'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import PreviewIcon from '@mui/icons-material/Preview'
@@ -16,7 +16,7 @@ const ProjectCard = ({ element }: props) => {
     <Card
       style={{
         maxWidth: '80%',
-        height: '500px',
+        maxHeight: '300px',
         display: 'flex',
         flexDirection: 'row',
         margin: '20px',
@@ -32,7 +32,7 @@ const ProjectCard = ({ element }: props) => {
           </Typography>
         </Box>
         <Box p="10px">
-          <Typography>
+          <Typography align="center">
             <Markdown>{t(element.description)}</Markdown>
           </Typography>
 

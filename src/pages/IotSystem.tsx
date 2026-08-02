@@ -2,35 +2,31 @@ import { useTranslation } from 'react-i18next'
 import ChallengeTable from '../components/ChallengeTable'
 import DetailsViewTemplate from '../components/DetailsViewTemplate'
 import MermaidDiagram from '../components/MermaidDiagram'
-import { useLocation } from 'react-router-dom'
-import test_schema from '../assets/project-calibration/test_schema.svg'
-import { Box, Typography } from '@mui/material'
 
-const CalibrationBench = () => {
-  const { t } = useTranslation(['calibration_auite'])
-  const location = useLocation()
+const IotSystem = () => {
+  const { t } = useTranslation(['iot_system'])
   return (
     <DetailsViewTemplate
       status={t('status')}
-      banner="project-calibration/bench.webp"
+      banner="project-iot/iotfrontpage.webp"
       title={t('title')}
       subtitle={t('subtitle')}
       badges={t('badges').split('&')}
       links={[
         {
-          type: 'internal_link',
-          textButton: t('link1'),
-          link: `#${location.pathname}#architecture`,
-        },
-        {
-          type: 'internal_link',
-          textButton: t('link2'),
-          link: `#${location.pathname}#key-decisions`,
-        },
-        {
           type: 'link',
+          textButton: t('link1'),
+          link: 'https://juanchocoding.dev',
+        },
+        {
+          type: 'github',
+          textButton: t('link2'),
+          link: 'https://github.com/Juancho-Coding/IOT-Dashboard_back',
+        },
+        {
+          type: 'github',
           textButton: t('link3'),
-          link: `/#/projectDetails/managementLab`,
+          link: 'https://github.com/Juancho-Coding/IOT-Dashboard_front',
         },
       ]}
       heroText={t('hero_text')}
@@ -60,20 +56,37 @@ const CalibrationBench = () => {
                 text1: t('challenge_content_item5_text1'),
                 text2: t('challenge_content_item5_text2'),
               },
-              {
-                text1: t('challenge_content_item6_text1'),
-                text2: t('challenge_content_item6_text2'),
-              },
             ]}
           />
         ),
-        generalInfo: undefined,
+        generalInfo: undefined /* [
+          {
+            title: t('challenge_general1_title'),
+            content: t('challenge_general1_content'),
+          },
+          {
+            title: t('challenge_general2_title'),
+            content: t('challenge_general2_content'),
+          },
+          {
+            title: t('challenge_general3_title'),
+            content: t('challenge_general3_content'),
+          },
+          {
+            title: t('challenge_general4_title'),
+            content: t('challenge_general4_content'),
+          },
+          {
+            title: t('challenge_general5_title'),
+            content: t('challenge_general5_content'),
+          },
+        ],*/,
       }}
       architecture={{
         title: t('architecture_title'),
         content: t('architecture_content'),
         component: {
-          item: <MermaidDiagram chart={calibrationSuiteArchitectureDiagram} />,
+          item: <MermaidDiagram chart={iotArchitectureDiagram} />,
           flexPriority: 2,
         },
       }}
@@ -112,6 +125,10 @@ const CalibrationBench = () => {
           {
             title: t('impact_item1_title'),
             content: t('impact_item1_content'),
+          },
+          {
+            title: t('impact_item2_title'),
+            content: t('impact_item2_content'),
           },
         ],
         keypoints: [
@@ -152,37 +169,13 @@ const CalibrationBench = () => {
             title: t('stack_item5_title'),
             chips: t('stack_item5_chips').split('&'),
           },
-        ],
-      }}
-      gallery={{
-        prefix: 'project-calibration',
-        images: [
           {
-            img: 'imCalibration1.webp',
-            label: t('gallery_item1'),
-          },
-          {
-            img: 'bench1.webp',
-            label: t('gallery_item2'),
-          },
-          {
-            img: 'bench2.webp',
-            label: t('gallery_item3'),
-          },
-          {
-            img: 'bench3.webp',
-            label: t('gallery_item4'),
-          },
-          {
-            img: 'bench4.webp',
-            label: t('gallery_item5'),
-          },
-          {
-            img: 'bench5.webp',
-            label: t('gallery_item6'),
+            title: t('stack_item6_title'),
+            chips: t('stack_item6_chips').split('&'),
           },
         ],
       }}
+      gallery={undefined}
       roadmap={{
         title: t('roadmap_title'),
         items: [
@@ -194,63 +187,46 @@ const CalibrationBench = () => {
             title: t('roadmap_item2_title'),
             content: t('roadmap_item2_content'),
           },
+          {
+            title: t('roadmap_item3_title'),
+            content: t('roadmap_item3_content'),
+          },
         ],
       }}
-    >
-      <Box display="flex" flexDirection="column" alignItems="center">
-        <img
-          src={test_schema}
-          alt="Calibration suite diagram"
-          style={{ maxWidth: '100%' }}
-        />
-        <Typography>{t('architecture_annotation')}</Typography>
-      </Box>
-    </DetailsViewTemplate>
+    />
   )
 }
 
-const calibrationSuiteArchitectureDiagram = `
-flowchart TB
-
-    subgraph FIELD["Field layer"]
-    direction TB
-      SENSORS["Process sensors<br/>Valves and actuators"]
-      PLC["Industrial PLC"]
-      OPC["OPC server"]
-      SENSORS --> PLC
-      PLC --> OPC
+const iotArchitectureDiagram = `
+graph TB
+    subgraph Field["Field"]
+        Devices["IoT Devices<br/>sensors"]
     end
-
-    subgraph SIM["Simulator"]
-      EMULATED["Emulated sensors"]
+ 
+    Broker["MQTT Broker"]
+ 
+    subgraph Worker["Process 1 — MQTT Worker"]
+        WorkerNode["Node.js / TypeScript<br/>polynomial scaling"]
     end
-
-    MQTT{{"Mosquitto broker<br/>Local"}}
-    HAL["Hardware Abstraction Layer"]
-    LV["LabVIEW app<br/>Test orchestration"]
-    DB[("PostgreSQL<br/>Local")]
-    WEB["Local web server<br/>Serves tablet UI"]
-    TABLET["Operator tablet<br/>paho-mqtt in browser"]
-    XL["Excel template<br/>Raw data + formatted cert"]
-    OUT["PDF certificate<br/>Thermal label"]
-
-    LV -- "ActiveX: fill raw sheet, print" --> XL
-    LV -- "pub/sub Readings" <--> MQTT
-    SIM --> HAL
-    OPC -- "OPC UA" --> HAL
-    HAL --> LV
-    LV <--> DB
-    WEB -- "HTML/JS" --> TABLET
-    TABLET -- "MQTT over WebSockets" --> MQTT
-    XL --> OUT
-
-
-  classDef store fill:transparent,stroke:#FF9132,stroke-width:2px,color:#fff
-  classDef broker fill:transparent,stroke:#FF9132,stroke-width:2px,stroke-dasharray: 4 3,color:#fff
-  classDef hal fill:transparent,stroke:#FFFFFF,stroke-width:2px,color:#fff
-  class DB,XL store
-  class MQTT broker
-  class HAL hal
+ 
+    subgraph Backend["Process 2 — REST Backend"]
+        BackendNode["Node.js / TypeScript<br/>Express, auth, CRUD"]
+    end
+ 
+    Redis[("Redis<br/>pub/sub bus + cache<br/>sensor metadata, latest readings")]
+    Postgres[("PostgreSQL<br/>source of truth")]
+ 
+    Traefik["Traefik<br/>reverse proxy, TLS"]
+    Frontend["React Frontend<br/>browser"]
+ 
+    Devices -->|MQTT| Broker
+    Broker -->|subscribe| WorkerNode
+    WorkerNode -->|read metadata| Redis
+    WorkerNode -->|publish scaled values| Redis
+    Redis -->|pub/sub| BackendNode
+    BackendNode <-->|SQL| Postgres
+    Traefik -->|HTTPS| BackendNode
+    Frontend -->|REST + polling<br/>Socket.IO next| Traefik
 `
 
-export default CalibrationBench
+export default IotSystem

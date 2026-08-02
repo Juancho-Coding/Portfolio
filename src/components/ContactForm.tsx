@@ -6,10 +6,10 @@ import {
   CircularProgress,
   TextField,
   Typography,
+  useMediaQuery,
 } from '@mui/material'
-import { useEffect, useState } from 'react'
-
-import { sendEmail } from '../api/emailApi'
+import { useEffect, useRef, useState } from 'react'
+import emailjs from '@emailjs/browser'
 import { useTranslation } from 'react-i18next'
 
 const ContactForm = () => {
@@ -22,18 +22,29 @@ const ContactForm = () => {
     result: 'idle' | 'success' | 'error'
     message: string
   }>({ result: 'idle', message: '' })
+  const form = useRef<HTMLFormElement | null>(null)
+  const small = useMediaQuery('(max-width: 900px)')
 
   const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     try {
+      if (form.current === null) return
       setSending(true)
-      // await sendEmail(name, email, message);
-      await sendEmail(name, email, message)
+      await emailjs.sendForm(
+        'service_jzwdzkm',
+        'template_pyhihqd',
+        form.current,
+        {
+          publicKey: '3-DL4JESDBH-eSy7s',
+        }
+      )
+      console.log('SUCCESS!')
       setSendResult({ result: 'success', message: 'The email was sent' })
       setName('')
       setEmail('')
       setMessage('')
     } catch (error) {
+      console.log('FAILED...', error)
       setSendResult({
         result: 'error',
         message: 'An error ocurred, please try again',
@@ -53,7 +64,7 @@ const ContactForm = () => {
   }, [sendResult])
 
   return (
-    <form onSubmit={submitHandler}>
+    <form ref={form} onSubmit={submitHandler}>
       <Card sx={{ p: 3 }}>
         {sendResult.result !== 'idle' && (
           <Alert severity={sendResult.result}>{sendResult.message}</Alert>
@@ -62,9 +73,11 @@ const ContactForm = () => {
           {t('title')}
         </Typography>
         <TextField
-          id="name"
+          id="user_name"
+          name="name"
           label={t('name')}
           variant="outlined"
+          size={small ? 'small' : 'medium'}
           required
           placeholder={t('name_hint')}
           fullWidth
@@ -75,9 +88,11 @@ const ContactForm = () => {
         />
         <TextField
           type="email"
-          id="mail"
+          name="email"
+          id="email"
           label={t('mail')}
           variant="outlined"
+          size={small ? 'small' : 'medium'}
           required
           placeholder={t('mail_hint')}
           fullWidth
@@ -88,9 +103,11 @@ const ContactForm = () => {
           }}
         />
         <TextField
-          id="content"
+          id="message"
+          name="message"
           label={t('message')}
           placeholder={t('message_hint')}
+          size={small ? 'small' : 'medium'}
           multiline
           fullWidth
           rows={4}
@@ -104,11 +121,15 @@ const ContactForm = () => {
             type="submit"
             variant="contained"
             disabled={sending ? true : false}
+            sx={{ textTransform: 'none' }}
           >
             {t('send')}
           </Button>
           {sending && <CircularProgress />}
         </Box>
+        <Typography sx={{ fontSize: '0.8rem', fontStyle: 'italic' }}>
+          {t('reply')}
+        </Typography>
       </Card>
     </form>
   )

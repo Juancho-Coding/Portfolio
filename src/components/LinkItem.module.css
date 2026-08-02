@@ -1,10 +1,10 @@
 .link {
-  margin-left: 5px;
-  margin-right: 5px;
+  display: block;
   text-decoration: none;
 }
 
 .text {
+  box-sizing: border-box;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 5px;
@@ -15,6 +15,19 @@
 }
 
 .text-selected {
+  background-color: white;
+  color: black;
+}
+
+.text_small {
+  box-sizing: border-box;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: white;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.text_small-selected {
   background-color: white;
   color: black;
 }

@@ -7,7 +7,7 @@ import ProjectsContainer from '../ProjectsContainer'
 import { useTranslation } from 'react-i18next'
 import { useMediaQuery } from '@mui/material'
 
-const Prjects = ({ onVisible }: props) => {
+const Projects = ({ onVisible }: props) => {
   const small = useMediaQuery('(max-width: 900px)')
   const { t } = useTranslation(['projects', 'common'])
   const ref = useRef<HTMLElement>(null)
@@ -81,4 +81,4 @@ type props = {
   onVisible: React.Dispatch<React.SetStateAction<string>>
 }
 
-export default Prjects
+export default Projects

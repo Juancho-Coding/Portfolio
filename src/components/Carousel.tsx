@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useKeenSlider } from 'keen-slider/react'
 import 'keen-slider/keen-slider.min.css'
-import dinamicImport from '../utils/dinamicImport'
+import dinamicImport from '../utils/dynamicImport'
 import { Box } from '@mui/material'
 import classes from './Carousel.module.css'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew'
@@ -78,9 +78,14 @@ const Carousel = ({ images, prefix }: { images: images[]; prefix: string }) => {
                 textAlign="center"
                 position="relative"
                 paddingTop="30px"
+                boxSizing="border-box"
               >
                 <img
-                  style={{ height: '100%', objectFit: 'cover' }}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'contain',
+                  }}
                   src={dinamicImport(`${prefix}/${el.img}`)}
                 />
                 <Typography

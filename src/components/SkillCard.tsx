@@ -1,6 +1,6 @@
 import { Typography, Card, CardContent, CardMedia } from '@mui/material'
 
-import imageUrl from '../utils/dinamicImport'
+import imageUrl from '../utils/dynamicImport'
 
 const SkillCard = ({ title, image, maxWidth = 200 }: CardProps) => {
   return (
