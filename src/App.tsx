@@ -16,7 +16,6 @@ const router = createBrowserRouter([
   },
   {
     path: '/projectDetails',
-    errorElement: <NotFound />,
     element: <Outlet />,
     children: [
       {
@@ -50,6 +49,7 @@ function App() {
           position: 'absolute',
           inset: 0,
           zIndex: '-1',
+          backgroundColor: '#05101c',
         }}
       >
         <ParticlesUI />

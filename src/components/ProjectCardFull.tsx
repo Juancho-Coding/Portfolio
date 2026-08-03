@@ -8,9 +8,11 @@ import PreviewIcon from '@mui/icons-material/Preview'
 import InfoIcon from '@mui/icons-material/Info'
 
 import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
 
 const ProjectCard = ({ element }: props) => {
   const { t } = useTranslation(['projects', 'common'])
+  const navigate = useNavigate()
 
   return (
     <Card
@@ -69,7 +71,7 @@ const ProjectCard = ({ element }: props) => {
                 startIcon={<InfoIcon />}
                 sx={{ ml: 2 }}
                 onClick={() => {
-                  window.open(element.page, '_self')
+                  navigate(element.page)
                 }}
               >
                 {t('button_details')}

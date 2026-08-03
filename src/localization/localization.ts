@@ -36,11 +36,20 @@ import {
   fr_skills_dict,
 } from './dict_fr'
 
+function obtainLanguage() {
+  const language = localStorage.getItem('lang')
+  if (!language || !['en', 'es', 'fr'].includes(language)) {
+    localStorage.setItem('lang', 'en')
+    return 'en'
+  }
+  return language
+}
+
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
     supportedLngs: ['en', 'es', 'fr'],
-    lng: 'en',
+    lng: obtainLanguage(),
     fallbackLng: 'en',
     defaultNS: 'common',
     fallbackNS: 'common',
@@ -53,7 +62,7 @@ i18n
         projects: en_projects_dict,
         contact: en_contact_dict,
         iot_system: en_iot_system_dict,
-        calibration_auite: en_calibration_suite,
+        calibration_suite: en_calibration_suite,
         management_lab: en_management_lab_dict,
       },
       es: {
@@ -64,7 +73,7 @@ i18n
         projects: es_projects_dict,
         contact: es_contact_dict,
         iot_system: es_iot_system_dict,
-        calibration_auite: es_calibration_suite,
+        calibration_suite: es_calibration_suite,
         management_lab: es_management_lab_dict,
       },
       fr: {
@@ -75,7 +84,7 @@ i18n
         projects: fr_projects_dict,
         contact: fr_contact_dict,
         iot_system: fr_iot_system_dict,
-        calibration_auite: fr_calibration_suite,
+        calibration_suite: fr_calibration_suite,
         management_lab: fr_management_lab_dict,
       },
     },

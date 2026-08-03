@@ -9,10 +9,12 @@ import InfoIcon from '@mui/icons-material/Info'
 import CloseIcon from '@mui/icons-material/Close'
 import { useTranslation } from 'react-i18next'
 import { IconButton } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 
 const ProjectDetailedCard = ({ onClose, item }: props) => {
   const [visibility, setVisibility] = useState(true)
   const { t } = useTranslation(['projects', 'common'])
+  const navigate = useNavigate()
 
   return (
     <Fade
@@ -84,7 +86,7 @@ const ProjectDetailedCard = ({ onClose, item }: props) => {
                     startIcon={<InfoIcon />}
                     sx={{ ml: 2 }}
                     onClick={() => {
-                      window.open(item.page, '_self')
+                      navigate(item.page)
                     }}
                   >
                     {t('button_details')}

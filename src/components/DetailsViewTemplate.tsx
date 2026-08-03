@@ -57,7 +57,7 @@ const DetailsViewTemplate = ({
   const [opened, setOpened] = useState(
     new Array(keyDecision.items.length).fill(false)
   )
-  const { t } = useTranslation(['dashboard_page', 'common'])
+  const { t, i18n } = useTranslation(['common'])
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' })
@@ -66,6 +66,8 @@ const DetailsViewTemplate = ({
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
+
+  console.log(i18n.language)
 
   return (
     <Box>

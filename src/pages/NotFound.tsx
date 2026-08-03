@@ -47,7 +47,6 @@ const Page404 = () => {
       <Box>
         <Typography textAlign="center">{t('message_404')}</Typography>
       </Box>
-      <Button></Button>
       <a href="/">
         <Button variant="contained">{t('message_404_button')}</Button>
       </a>

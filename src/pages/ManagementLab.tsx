@@ -10,7 +10,7 @@ const ManagementLab = () => {
   return (
     <DetailsViewTemplate
       status={t('status')}
-      banner="project-calibration/bench.webp"
+      banner="project-management/managementfrontpage.webp"
       title={t('title')}
       subtitle={t('subtitle')}
       badges={t('badges').split('&')}

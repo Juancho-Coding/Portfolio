@@ -8,6 +8,7 @@ import {
   IconButton,
   Drawer,
   Divider,
+  SelectChangeEvent,
 } from '@mui/material'
 
 import LinkItem from './LinkItem'
@@ -42,6 +43,12 @@ const NavBar = ({ currentSection }: props) => {
       window.removeEventListener('scroll', scrollHandler)
     }
   }, [])
+
+  const langHandler = (e: SelectChangeEvent) => {
+    setLang(e.target.value)
+    i18n.changeLanguage(e.target.value)
+    localStorage.setItem('lang', e.target.value)
+  }
 
   return (
     <Box width="100%">
@@ -89,10 +96,7 @@ const NavBar = ({ currentSection }: props) => {
                     color: 'white',
                   },
                 }}
-                onChange={(e) => {
-                  setLang(e.target.value)
-                  i18n.changeLanguage(e.target.value)
-                }}
+                onChange={langHandler}
               >
                 <MenuItem value="en">en</MenuItem>
                 <MenuItem value="es">es</MenuItem>

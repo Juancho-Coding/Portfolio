@@ -7,7 +7,7 @@ import test_schema from '../assets/project-calibration/test_schema.svg'
 import { Box, Typography } from '@mui/material'
 
 const CalibrationBench = () => {
-  const { t } = useTranslation(['calibration_auite'])
+  const { t } = useTranslation(['calibration_suite'])
   const location = useLocation()
   return (
     <DetailsViewTemplate
